@@ -286,6 +286,7 @@ def analyze_text(text, show_suggestions=False, show_firstk_probs=20):
 
 
 def test_by_WSC_child_problem():
+    from collections import OrderedDict
     import json
     import os
     import re
@@ -293,17 +294,24 @@ def test_by_WSC_child_problem():
     with open(path, 'r') as f:
         data_l = json.load(f)
     f.close()
+
     result = []
+    s_order = ['sentence', 'answer1', 'answer0', 'correct_answer', 'predict_answer']
+    data_order = ['index', 'sentences']
     for data in data_l:
         if data['sentences'] != []:
-            for s in data['sentences']:
+            for i in range(len(data['sentences'])):
+                s = data['sentences'][i]
                 s['predict_answer'] = []
                 res = analyze_text([s['sentence']], show_firstk_probs=-1)
                 for r in res:
                     if re.findall(r[0], str(s['correct_answer']), flags=re.IGNORECASE):
                         s['predict_answer'].append(str(r))
+                s = collections.OrderedDict(sorted(s.items(), key=lambda i:s_order.index(i[0])))
+                data['sentences'][i] = s
+        data = collections.OrderedDict(sorted(data.items(), key=lambda i:data_order.index(i[0])))
         result.append(data)
-    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'WSC_child_problem_e.json') 
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'WSC_child_problem.json')
     with open(path, 'w') as f:
          json.dump(result, f, indent=4, separators=(',', ': '), ensure_ascii=False)
     f.close()
