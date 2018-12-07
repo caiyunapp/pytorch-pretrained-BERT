@@ -310,9 +310,9 @@ def test_by_WSC_child_problem():
                     if any(a.lower() == r[0] for a in answer):
                         s['predict_answer'].append(str(r))
                 print(s['predict_answer'])
-                s = collections.OrderedDict(sorted(s.items(), key=lambda i:s_order.index(i[0])))
+                s = OrderedDict(sorted(s.items(), key=lambda i:s_order.index(i[0])))
                 data['sentences'][i] = s
-        data = collections.OrderedDict(sorted(data.items(), key=lambda i:data_order.index(i[0])))
+        data = OrderedDict(sorted(data.items(), key=lambda i:data_order.index(i[0])))
         result.append(data)
     path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'WSC_child_problem.json')
     with open(path, 'w') as f:
