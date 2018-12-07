@@ -305,9 +305,11 @@ def test_by_WSC_child_problem():
                 s['predict_answer'] = []
                 res = analyze_text([s['sentence']], show_firstk_probs=-1)
                 answer = s['answer1'] + s['answer0']
+                print(res)
                 for r in res:
                     if any(a.lower() == r[0] for a in answer):
                         s['predict_answer'].append(str(r))
+                print(s['predict_answer'])
                 s = collections.OrderedDict(sorted(s.items(), key=lambda i:s_order.index(i[0])))
                 data['sentences'][i] = s
         data = collections.OrderedDict(sorted(data.items(), key=lambda i:data_order.index(i[0])))

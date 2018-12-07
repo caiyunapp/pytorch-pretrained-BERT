@@ -20,8 +20,8 @@ def score():
                     if any(answer.lower() == predict_answer[0] for answer in s['correct_answer']):
                         score = 1
                 s['score'] = score
-            res = {'index': data['index'], 's': s}
-            result.append(res)
+                res = {'index': data['index'], 's': s}
+                result.append(res)
 
     total_score = 0
     l = {}
@@ -35,7 +35,7 @@ def score():
     print('Score each valid problems:')
     description = ' Total valid problems: {0}\n Correct answers: {1}\n Accuracy: {2}'
     print(description.format(len(result), total_score, float(total_score/len(result))))
-    print('Correct problems:', l)
+    print(' Correct problems:', l)
 
     print()
     result_dict = {}
