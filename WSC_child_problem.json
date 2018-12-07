@@ -4160,9 +4160,9 @@
         "index": 170,
         "sentences": [
             {
-                "sentence": "In July, Russia declared war on French. Since French's army was much better equipped and ten times larger, the _ were defeated within weeks.",
+                "sentence": "In July, Russia declared war on France. Since France's army was much better equipped and ten times larger, the _ were defeated within weeks.",
                 "answer1": [
-                    "French"
+                    "France"
                 ],
                 "answer0": [
                     "Russia"
@@ -4170,9 +4170,7 @@
                 "correct_answer": [
                     "Russia"
                 ],
-                "predict_answer": [
-                    "('french', 0.7689803242683411)"
-                ],
+                "predict_answer": [],
                 "score": 0
             }
         ]
@@ -4181,12 +4179,12 @@
         "index": 171,
         "sentences": [
             {
-                "sentence": "In July, German declared war on Spain. Since Spain's army was much better equipped and ten times larger, the _ were victorious within weeks.",
+                "sentence": "In July, Germany declared war on Spain. Since Spain's army was much better equipped and ten times larger, the _ were victorious within weeks.",
                 "answer1": [
                     "Spain"
                 ],
                 "answer0": [
-                    "German"
+                    "Germany"
                 ],
                 "correct_answer": [
                     "Spain"
@@ -4251,15 +4249,15 @@
         "index": 176,
         "sentences": [
             {
-                "sentence": "Reachers are studying three species of fish that have recently been found living in the Indian Ocean. the _ began two years ago.",
+                "sentence": "Researchers are studying three species of fish that have recently been found living in the Indian Ocean. the _ began two years ago.",
                 "answer1": [
-                    "reachers"
+                    "researchers"
                 ],
                 "answer0": [
                     "fish"
                 ],
                 "correct_answer": [
-                    "reachers"
+                    "researchers"
                 ],
                 "predict_answer": [],
                 "score": 0
@@ -4270,9 +4268,9 @@
         "index": 177,
         "sentences": [
             {
-                "sentence": "Reachers are studying three species of sharks that have recently been found living in the Indian Ocean. the _ appeared two years ago.",
+                "sentence": "Researchers are studying three species of sharks that have recently been found living in the Indian Ocean. the _ appeared two years ago.",
                 "answer1": [
-                    "reachers"
+                    "researchers"
                 ],
                 "answer0": [
                     "sharks"
@@ -4281,7 +4279,7 @@
                     "sharks"
                 ],
                 "predict_answer": [
-                    "('sharks', 0.010679484345018864)"
+                    "('sharks', 0.010861886665225029)"
                 ],
                 "score": 1
             }

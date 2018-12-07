@@ -296,7 +296,7 @@ def test_by_WSC_child_problem():
     f.close()
 
     result = []
-    s_order = ['sentence', 'answer1', 'answer0', 'correct_answer', 'predict_answer']
+    s_order = ['sentence', 'answer1', 'answer0', 'correct_answer', 'predict_answer', 'score']
     data_order = ['index', 'sentences']
     for data in data_l:
         if data['sentences'] != []:
@@ -305,11 +305,14 @@ def test_by_WSC_child_problem():
                 s['predict_answer'] = []
                 res = analyze_text([s['sentence']], show_firstk_probs=-1)
                 answer = s['answer1'] + s['answer0']
+                print(data['index'])
+                print(res)
                 for r in res:
                     if any(a.lower() == r[0] for a in answer):
                         s['predict_answer'].append(str(r))
                 s = OrderedDict(sorted(s.items(), key=lambda i:s_order.index(i[0])))
                 data['sentences'][i] = s
+                print(s['predict_answer'])
         data = OrderedDict(sorted(data.items(), key=lambda i:data_order.index(i[0])))
         result.append(data)
     path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'WSC_child_problem.json')
