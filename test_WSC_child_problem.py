@@ -304,8 +304,9 @@ def test_by_WSC_child_problem():
                 s = data['sentences'][i]
                 s['predict_answer'] = []
                 res = analyze_text([s['sentence']], show_firstk_probs=-1)
+                answer = s['answer1'] + s['answer0']
                 for r in res:
-                    if re.findall(r[0], str(s['correct_answer']), flags=re.IGNORECASE):
+                    if any(a.lower() == r[0] for a in answer):
                         s['predict_answer'].append(str(r))
                 s = collections.OrderedDict(sorted(s.items(), key=lambda i:s_order.index(i[0])))
                 data['sentences'][i] = s
@@ -315,6 +316,7 @@ def test_by_WSC_child_problem():
     with open(path, 'w') as f:
          json.dump(result, f, indent=4, separators=(',', ': '), ensure_ascii=False)
     f.close()
+    print('Already save the predict_answer in WSC_child_problem.json')
 
 
 test_by_WSC_child_problem()
