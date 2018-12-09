@@ -20,7 +20,7 @@ def score():
                 s = data['sentences'][i]
                 score = 0
                 if s['predict_answer'] != []:
-                    predict_answer = eval(s['predict_answer'][0])
+                    predict_answer = s['predict_answer'][0]
                     if any(answer.lower() == predict_answer[0] for answer in s['correct_answer']):
                         score = 1
                 s['score'] = score
@@ -29,10 +29,10 @@ def score():
         data = OrderedDict(sorted(data.items(), key=lambda i:data_order.index(i[0])))
         result.append(data)
 
+    print('Save the score in WSC_child_problem.json\n')
     with open(path, 'w') as f:
          json.dump(result, f, indent=4, separators=(',', ': '), ensure_ascii=False)
     f.close()
-    print('Already save the score in WSC_child_problem.json\n')
 
     total_score = 0
     total_valid_problems = 0

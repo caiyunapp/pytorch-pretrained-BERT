@@ -309,17 +309,18 @@ def test_by_WSC_child_problem():
                 print(res)
                 for r in res:
                     if any(a.lower() == r[0] for a in answer):
-                        s['predict_answer'].append(str(r))
+                        s['predict_answer'].append(list(r))
                 s = OrderedDict(sorted(s.items(), key=lambda i:s_order.index(i[0])))
                 data['sentences'][i] = s
                 print(s['predict_answer'])
         data = OrderedDict(sorted(data.items(), key=lambda i:data_order.index(i[0])))
         result.append(data)
+    print('Save the predict_answer in WSC_child_problem.json')
     path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'WSC_child_problem.json')
     with open(path, 'w') as f:
          json.dump(result, f, indent=4, separators=(',', ': '), ensure_ascii=False)
     f.close()
-    print('Already save the predict_answer in WSC_child_problem.json')
+    print('Done.')
 
 
 test_by_WSC_child_problem()
