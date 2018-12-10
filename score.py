@@ -12,7 +12,7 @@ def score():
     f.close()
 
     result = []
-    s_order = ['sentence', 'answer1', 'answer0', 'correct_answer', 'predict_answer', 'score']
+    s_order = ['sentence', 'answer1', 'answer0', 'correct_answer', 'adjacent_ref', 'predict_answer', 'score']
     data_order = ['index', 'sentences']
     for data in data_l:
         if data['sentences'] != []:

@@ -285,18 +285,33 @@ def analyze_text(text, show_suggestions=False, show_firstk_probs=20):
     return top_pairs
 
 
+def detect_vocabulary():
+    import json
+    import os
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'WSC_child_problem.json')
+    with open(path, 'r') as f:
+        data_l = json.load(f)
+    f.close()
+    for data in data_l:
+        for s in data['sentences']:
+            for a in s['answer0'] + s['answer1']:
+                a = a.lower()
+                if a not in tokenizer.vocab:
+                    print(a, 'not in vocab!!!')
+
+
 def test_by_WSC_child_problem():
     from collections import OrderedDict
     import json
     import os
     import re
-    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'WSC_child_problem.json') 
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'WSC_child_problem.json')
     with open(path, 'r') as f:
         data_l = json.load(f)
     f.close()
 
     result = []
-    s_order = ['sentence', 'answer1', 'answer0', 'correct_answer', 'predict_answer', 'score']
+    s_order = ['sentence', 'answer1', 'answer0', 'correct_answer', 'adjacent_ref', 'predict_answer', 'score']
     data_order = ['index', 'sentences']
     for data in data_l:
         if data['sentences'] != []:
@@ -324,3 +339,4 @@ def test_by_WSC_child_problem():
 
 
 test_by_WSC_child_problem()
+#detect_vocabulary()
