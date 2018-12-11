@@ -292,12 +292,15 @@ def detect_vocabulary():
     with open(path, 'r') as f:
         data_l = json.load(f)
     f.close()
+
+    print('Detect whether the vocabulary of WSC_child_problem.json in the tokenizer or not ...')
     for data in data_l:
         for s in data['sentences']:
             for a in s['answer0'] + s['answer1']:
                 a = a.lower()
                 if a not in tokenizer.vocab:
                     print(a, 'not in vocab!!!')
+    print('Done.')
 
 
 def test_by_WSC_child_problem():
