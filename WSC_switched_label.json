@@ -7,7 +7,7 @@
     "answer0": "The city councilmen",
     "sentence_switched": "The demonstrators refused the city councilmen a permit because [they] feared violence.",
     "correct_answer": "The city councilmen",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 0
   },
   {
@@ -18,7 +18,7 @@
     "answer0": "The city councilmen",
     "sentence_switched": "The demonstrators refused the city councilmen a permit because [they] advocated violence.",
     "correct_answer": "The demonstrators",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 0
   },
   {
@@ -73,7 +73,7 @@
     "answer0": "Paul",
     "sentence_switched": "George tried to call paul on the phone, but [he] wasn't successful.",
     "correct_answer": "Paul",
-    "relational_word": "",
+    "relational_word": "call:successful available",
     "is_associative": 0
   },
   {
@@ -84,7 +84,7 @@
     "answer0": "Paul",
     "sentence_switched": "George tried to call paul on the phone, but [he] wasn't available.",
     "correct_answer": "George",
-    "relational_word": "",
+    "relational_word": "call:successful available",
     "is_associative": 0
   },
   {
@@ -95,7 +95,7 @@
     "answer0": "the lawyer",
     "sentence_switched": "The witness asked the lawyer a question, but [he] was reluctant to repeat it.",
     "correct_answer": "the lawyer",
-    "relational_word": "",
+    "relational_word": "ask:repeat answer",
     "is_associative": 0
   },
   {
@@ -106,7 +106,7 @@
     "answer0": "the lawyer",
     "sentence_switched": "The witness asked the lawyer a question, but [he] was reluctant to answer it.",
     "correct_answer": "the witness",
-    "relational_word": "",
+    "relational_word": "ask:repeat answer",
     "is_associative": 0
   },
   {
@@ -139,7 +139,7 @@
     "answer0": "Frank",
     "sentence_switched": "Bill felt vindicated when his longtime rival frank revealed that [he] was the winner of the competition.",
     "correct_answer": "Frank",
-    "relational_word": "",
+    "relational_word": "vindicated/crushed:be the winner",
     "is_associative": 0
   },
   {
@@ -150,7 +150,7 @@
     "answer0": "Frank",
     "sentence_switched": "Bill felt crushed when his longtime rival frank revealed that [he] was the winner of the competition.",
     "correct_answer": "Bill",
-    "relational_word": "",
+    "relational_word": "vindicated/crushed:be the winner",
     "is_associative": 0
   },
   {
@@ -293,7 +293,7 @@
     "answer0": "Sam's drawing",
     "sentence_switched": "Tina's drawing was hung just above sam's and [it] did look much better with another one below it.",
     "correct_answer": "Sam's drawing",
-    "relational_word": "",
+    "relational_word": "above/below",
     "is_associative": 0
   },
   {
@@ -304,7 +304,7 @@
     "answer0": "Sam's drawing",
     "sentence_switched": "Tina's drawing was hung just above sam's and [it] did look much better with another one above it.",
     "correct_answer": "Tina's drawing",
-    "relational_word": "",
+    "relational_word": "above/below",
     "is_associative": 0
   },
   {
@@ -359,8 +359,8 @@
     "answer0": "Frank",
     "sentence_switched": "Tom was upset with frank because the toaster [he] had bought from him didn't work.",
     "correct_answer": "Frank",
-    "relational_word": "",
-    "is_associative": 0
+    "relational_word": "be upset with:buy from not work/sell not work",
+    "is_associative": 2
   },
   {
     "index": 33,
@@ -370,8 +370,8 @@
     "answer0": "Frank",
     "sentence_switched": "Tom was upset with frank because the toaster [he] had sold him didn't work.",
     "correct_answer": "Tom",
-    "relational_word": "",
-    "is_associative": 0
+    "relational_word": "be upset with:buy from not work/sell not work",
+    "is_associative": 2
   },
   {
     "index": 34,
@@ -381,7 +381,7 @@
     "answer0": "Jim",
     "sentence_switched": "Kevin yelled at jim because [he] was so upset.",
     "correct_answer": "Jim",
-    "relational_word": "",
+    "relational_word": "?yell at comfort:upset",
     "is_associative": 0
   },
   {
@@ -392,7 +392,7 @@
     "answer0": "Jim",
     "sentence_switched": "Kevin comforted jim because [he] was so upset.",
     "correct_answer": "Kevin",
-    "relational_word": "",
+    "relational_word": "?yell at comfort:upset",
     "is_associative": 0
   },
   {
@@ -425,7 +425,7 @@
     "answer0": "Pete",
     "sentence_switched": "Martin envies pete although [he] is very successful.",
     "correct_answer": "Pete",
-    "relational_word": "",
+    "relational_word": "although/because",
     "is_associative": 0
   },
   {
@@ -436,7 +436,7 @@
     "answer0": "Pete",
     "sentence_switched": "Martin envies pete because [he] is very successful.",
     "correct_answer": "Martin",
-    "relational_word": "",
+    "relational_word": "although/because",
     "is_associative": 0
   },
   {
@@ -514,7 +514,7 @@
     "sentence_switched": "Mark explained his theory to sid but [he] couldn't convince him.",
     "correct_answer": "Sid",
     "relational_word": "explain:convince/understand",
-    "is_associative": 0
+    "is_associative": 2
   },
   {
     "index": 47,
@@ -525,7 +525,7 @@
     "sentence_switched": "Mark explained his theory to sid but [he] couldn't understand him.",
     "correct_answer": "Mark",
     "relational_word": "explain:convince/understand",
-    "is_associative": 0
+    "is_associative": 2
   },
   {
     "index": 48,
@@ -535,8 +535,8 @@
     "answer0": "Susan",
     "sentence_switched": "Ann knew that susan's son had been in a car accident, so [she] told her about it.",
     "correct_answer": "Susan",
-    "relational_word": "",
-    "is_associative": 0
+    "relational_word": "?know tell:so/because",
+    "is_associative": 2
   },
   {
     "index": 49,
@@ -546,8 +546,8 @@
     "answer0": "Susan",
     "sentence_switched": "Ann knew that susan's son had been in a car accident, because [she] told her about it.",
     "correct_answer": "Ann",
-    "relational_word": "",
-    "is_associative": 0
+    "relational_word": "?know tell:so/because",
+    "is_associative": 2
   },
   {
     "index": 50,
@@ -579,7 +579,7 @@
     "answer0": "The painting",
     "sentence_switched": "The oak tree in mark's living room shows a painting. [it] is to the right of the bookcase.",
     "correct_answer": "The painting",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 0
   },
   {
@@ -590,7 +590,7 @@
     "answer0": "The painting",
     "sentence_switched": "The oak tree in mark's living room shows a painting. [it] is to the right of a house.",
     "correct_answer": "The oak tree",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 1
   },
   {
@@ -601,7 +601,7 @@
     "answer0": "The gap",
     "sentence_switched": "There is a wall in the gap. you can see the garden through [it] .",
     "correct_answer": "The gap",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 1
   },
   {
@@ -612,7 +612,7 @@
     "answer0": "The gap",
     "sentence_switched": "There is a wall in the gap. you can see the garden behind [it] .",
     "correct_answer": "The wall",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 1
   },
   {
@@ -623,7 +623,7 @@
     "answer0": "The drain",
     "sentence_switched": "The hair is clogged with drain. [it] has to be cleaned.",
     "correct_answer": "The drain",
-    "relational_word": "clog:cleaned/removed",
+    "relational_word": "clog:cleaned removed",
     "is_associative": 0
   },
   {
@@ -634,7 +634,7 @@
     "answer0": "The drain",
     "sentence_switched": "The hair is clogged with drain. [it] has to be removed.",
     "correct_answer": "The hair",
-    "relational_word": "clog:cleaned/removed",
+    "relational_word": "clog:cleaned removed",
     "is_associative": 0
   },
   {
@@ -645,7 +645,7 @@
     "answer0": "The meeting",
     "sentence_switched": "My train started at 4:00 and i needed to catch the meeting at 4:30,  so there wasn't much time. luckily, [it] was short, so it worked out.",
     "correct_answer": "The meeting",
-    "relational_word": "",
+    "relational_word": "?immediately follow:short delayed",
     "is_associative": 1
   },
   {
@@ -656,7 +656,7 @@
     "answer0": "The meeting",
     "sentence_switched": "My train started at 4:00 and i needed to catch the meeting at 4:30,  so there wasn't much time. luckily, [it] was delayed, so it worked out.",
     "correct_answer": "The train",
-    "relational_word": "",
+    "relational_word": "?immediately follow:short delayed",
     "is_associative": 0
   },
   {
@@ -667,8 +667,8 @@
     "answer0": "The pillar",
     "sentence_switched": "There is a stage between me and the pillar, and i can't see around [it] .",
     "correct_answer": "The pillar",
-    "relational_word": "",
-    "is_associative": 0
+    "relational_word": "?between:see see around",
+    "is_associative": 2
   },
   {
     "index": 61,
@@ -678,8 +678,8 @@
     "answer0": "The pillar",
     "sentence_switched": "There is a stage between me and the pillar, and i can't see [it] .",
     "correct_answer": "The stage",
-    "relational_word": "",
-    "is_associative": 0
+    "relational_word": "?between:see see around",
+    "is_associative": 2
   },
   {
     "index": 62,
@@ -689,7 +689,7 @@
     "answer0": "The announcement",
     "sentence_switched": "They broadcast a subway, but an announcement came into the  station and i couldn't hear [it] .",
     "correct_answer": "The announcement",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 0
   },
   {
@@ -700,7 +700,7 @@
     "answer0": "The announcement",
     "sentence_switched": "They broadcast a subway, but an announcement came into the  station and i couldn't hear over [it] .",
     "correct_answer": "The subway",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 0
   },
   {
@@ -733,7 +733,7 @@
     "answer0": "The rag",
     "sentence_switched": "I used an old knife to clean the rag, and then i put [it] in the trash.",
     "correct_answer": "The rag",
-    "relational_word": "",
+    "relational_word": "clean:put in the trash put in the drawer",
     "is_associative": 0
   },
   {
@@ -744,7 +744,7 @@
     "answer0": "The rag",
     "sentence_switched": "I used an old knife to clean the rag, and then i put [it] in the drawer.",
     "correct_answer": "The knife",
-    "relational_word": "",
+    "relational_word": "clean:put in the trash put in the drawer",
     "is_associative": 0
   },
   {
@@ -953,7 +953,7 @@
     "answer0": "The dog",
     "sentence_switched": "It was a summer afternoon, and the spot under tree was sitting in the middle of the lawn. after a while, it got up and moved to a dog,  because [it] was hot.",
     "correct_answer": "The dog",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 0
   },
   {
@@ -964,7 +964,7 @@
     "answer0": "The dog",
     "sentence_switched": "It was a summer afternoon, and the spot under tree was sitting in the middle of the lawn. after a while, it got up and moved to a dog,  because [it] was cooler.",
     "correct_answer": "The spot under the tree",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 1
   },
   {
@@ -1019,7 +1019,7 @@
     "answer0": "Alice",
     "sentence_switched": "Alice's daughter tried frantically to stop Alice from chatting at the party, leaving us to wonder why [she] was behaving so strangely.",
     "correct_answer": "Alice",
-    "relational_word": "",
+    "relational_word": "?stop normal/stop abnormal:strange",
     "is_associative": 0
   },
   {
@@ -1030,7 +1030,7 @@
     "answer0": "Alice",
     "sentence_switched": "Alice's daughter tried frantically to stop Alice from barking at the party, leaving us to wonder why [she] was behaving so strangely.",
     "correct_answer": "Alice's daughter",
-    "relational_word": "",
+    "relational_word": "?stop normal/stop abnormal:strange",
     "is_associative": 0
   },
   {
@@ -1041,7 +1041,7 @@
     "answer0": "Jim",
     "sentence_switched": "I saw the guy in military uniform with a huge red  beard yelling at jim. i don't know why [he] was, but he looked very unhappy.",
     "correct_answer": "Jim",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 0
   },
   {
@@ -1052,7 +1052,7 @@
     "answer0": "Jim",
     "sentence_switched": "I saw the guy in military uniform with a huge red  beard yelling at jim. i don't know who [he] was, but he looked very unhappy.",
     "correct_answer": "the guy in uniform",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 0
   },
   {
@@ -1085,7 +1085,7 @@
     "answer0": "The key",
     "sentence_switched": "I was trying to open the lock with the chewing gum, but someone had filled the keyhole with the key, and i couldn't get [it] in.",
     "correct_answer": "The key",
-    "relational_word": "",
+    "relational_word": "put ... into filled with ... :get in/get out",
     "is_associative": 1
   },
   {
@@ -1096,7 +1096,7 @@
     "answer0": "The key",
     "sentence_switched": "I was trying to open the lock with the chewing gum, but someone had filled the keyhole with the key, and i couldn't get [it] out.",
     "correct_answer": "The chewing gum",
-    "relational_word": "",
+    "relational_word": "put ... into filled with ... :get in/get out",
     "is_associative": 0
   },
   {
@@ -1107,7 +1107,7 @@
     "answer0": "The dog",
     "sentence_switched": "The cat chased the dog, which ran up a tree. [it] waited at the bottom.",
     "correct_answer": "The dog",
-    "relational_word": "",
+    "relational_word": "up:at the bottom/at the top",
     "is_associative": 0
   },
   {
@@ -1118,7 +1118,7 @@
     "answer0": "The dog",
     "sentence_switched": "The cat chased the dog, which ran up a tree. [it] waited at the top.",
     "correct_answer": "The cat",
-    "relational_word": "",
+    "relational_word": "up:at the bottom/at the top",
     "is_associative": 0
   },
   {
@@ -1217,7 +1217,7 @@
     "answer0": "Bob",
     "sentence_switched": "Carl collapsed on the sidewalk. soon he saw bob coming to help. [he] was very ill.",
     "correct_answer": "Bob",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 0
   },
   {
@@ -1228,7 +1228,7 @@
     "answer0": "Bob",
     "sentence_switched": "Carl collapsed on the sidewalk. soon he saw bob coming to help. [he] was very concerned.",
     "correct_answer": "Carl",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 0
   },
   {
@@ -1239,7 +1239,7 @@
     "answer0": "Sam and Amy",
     "sentence_switched": "Amy's parents are passionately in love, but sam and amy are unhappy about it, because [they] are fifteen.",
     "correct_answer": "Sam and Amy",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 1
   },
   {
@@ -1250,7 +1250,7 @@
     "answer0": "Sam and Amy",
     "sentence_switched": "Amy's parents are passionately in love, but sam and amy are unhappy about it, because [they] are snobs.",
     "correct_answer": "Amy's parents",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 0
   },
   {
@@ -1283,7 +1283,7 @@
     "answer0": "The old house",
     "sentence_switched": "Joe has sold his new house and bought a old one a few miles away. he will be moving out of [it] on thursday.",
     "correct_answer": "The old house",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 1
   },
   {
@@ -1294,7 +1294,7 @@
     "answer0": "The old house",
     "sentence_switched": "Joe has sold his new house and bought a old one a few miles away. he will be moving into [it] on thursday.",
     "correct_answer": "The new house",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 1
   },
   {
@@ -1350,7 +1350,7 @@
     "sentence_switched": "Sam pulled up a piano to the chair, but [it] was broken, so he had to stand instead.",
     "correct_answer": "The chair",
     "relational_word": "none",
-    "is_associative": 0
+    "is_associative": 2
   },
   {
     "index": 123,
@@ -1361,7 +1361,7 @@
     "sentence_switched": "Sam pulled up a piano to the chair, but [it] was broken, so he had to sing instead.",
     "correct_answer": "The piano",
     "relational_word": "none",
-    "is_associative": 0
+    "is_associative": 2
   },
   {
     "index": 124,
@@ -1371,7 +1371,7 @@
     "answer0": "The newspaper",
     "sentence_switched": "Since it was raining, i carried the backpack in my newspaper to keep [it] dry.",
     "correct_answer": "The newspaper",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 0
   },
   {
@@ -1382,7 +1382,7 @@
     "answer0": "The newspaper",
     "sentence_switched": "Since it was raining, i carried the backpack over my newspaper to keep [it] dry.",
     "correct_answer": "The backpack",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 0
   },
   {
@@ -1437,7 +1437,7 @@
     "answer0": "Jane",
     "sentence_switched": "Susan knocked on jane's door, but there was no answer. [she] was disappointed.",
     "correct_answer": "Jane",
-    "relational_word": "",
+    "relational_word": "but:disappointed",
     "is_associative": 0
   },
   {
@@ -1448,7 +1448,7 @@
     "answer0": "Jane",
     "sentence_switched": "Susan knocked on jane's door, but there was no answer. [she] was out.",
     "correct_answer": "Susan",
-    "relational_word": "",
+    "relational_word": "but:disappointed",
     "is_associative": 0
   },
   {
@@ -1459,8 +1459,8 @@
     "answer0": "Jane",
     "sentence_switched": "Susan knocked on the door, and jane answered it. [she] invited her to come out.",
     "correct_answer": "Jane",
-    "relational_word": "",
-    "is_associative": 0
+    "relational_word": "visit:invite come out/invite come in",
+    "is_associative": 2
   },
   {
     "index": 133,
@@ -1470,8 +1470,8 @@
     "answer0": "Jane",
     "sentence_switched": "Susan knocked on the door, and jane answered it. [she] invited her to come in.",
     "correct_answer": "Susan",
-    "relational_word": "",
-    "is_associative": 0
+    "relational_word": "visit:invite come out/invite come in",
+    "is_associative": 2
   },
   {
     "index": 134,
@@ -1481,7 +1481,7 @@
     "answer0": "Sam",
     "sentence_switched": "Adam took french classes from sam, because [he] was eager to speak it fluently.",
     "correct_answer": "Sam",
-    "relational_word": "",
+    "relational_word": "take classes from:eager known to speak it fluently",
     "is_associative": 0
   },
   {
@@ -1492,7 +1492,7 @@
     "answer0": "Sam",
     "sentence_switched": "Adam took french classes from sam, because [he] was known to speak it fluently.",
     "correct_answer": "Adam",
-    "relational_word": "",
+    "relational_word": "take classes from:eager known to speak it fluently",
     "is_associative": 0
   },
   {
@@ -1537,7 +1537,7 @@
     "sentence_switched": "The cloud was covered by a thick sun all morning, but luckily, by the time the picnic started, [it] was gone.",
     "correct_answer": "The cloud",
     "relational_word": "cover:out gone",
-    "is_associative": 0
+    "is_associative": 2
   },
   {
     "index": 140,
@@ -1547,7 +1547,7 @@
     "answer0": "The lake",
     "sentence_switched": "We went to the ocean beach, because a shark had been seen at the lake, so [it] was a safer place to swim.",
     "correct_answer": "The lake",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 0
   },
   {
@@ -1558,7 +1558,7 @@
     "answer0": "The lake",
     "sentence_switched": "We went to the ocean beach, because a shark had been seen at the lake, so [it] was a dangerous place to swim.",
     "correct_answer": "The ocean beach",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 0
   },
   {
@@ -1745,7 +1745,7 @@
     "answer0": "His eyes",
     "sentence_switched": "Fred covered his hands with his eyes, because the wind was blowing sand around. he opened [them] when the wind stopped.",
     "correct_answer": "His eyes",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 1
   },
   {
@@ -1756,7 +1756,7 @@
     "answer0": "His eyes",
     "sentence_switched": "Fred covered his hands with his eyes, because the wind was blowing sand around. he lowered [them] when the wind stopped.",
     "correct_answer": "His hands",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 0
   },
   {
@@ -1767,7 +1767,7 @@
     "answer0": "Terpsichore",
     "sentence_switched": "The actress used to be named tina, but she changed it to terpsichore a  few years ago, because she figured [it] was too hard to pronounce.",
     "correct_answer": "Terpsichore",
-    "relational_word": "change:hard:easy",
+    "relational_word": "change:hard/easy",
     "is_associative": 0
   },
   {
@@ -1778,7 +1778,7 @@
     "answer0": "Terpsichore",
     "sentence_switched": "The actress used to be named tina, but she changed it to terpsichore a  few years ago, because she figured [it] was easier to pronounce.",
     "correct_answer": "Tina",
-    "relational_word": "change:hard:easy",
+    "relational_word": "change:hard/easy",
     "is_associative": 0
   },
   {
@@ -1811,7 +1811,7 @@
     "answer0": "The dishwasher",
     "sentence_switched": "Fred was supposed to run the tv, but he put it off,  because he wanted to watch dishwasher. but the show turned out to be boring, so he changed his mind and turned [it] on.",
     "correct_answer": "The dishwasher",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 0
   },
   {
@@ -1822,7 +1822,7 @@
     "answer0": "The dishwasher",
     "sentence_switched": "Fred was supposed to run the tv, but he put it off,  because he wanted to watch dishwasher. but the show turned out to be boring, so he changed his mind and turned [it] off.",
     "correct_answer": "The TV",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 0
   },
   {
@@ -1899,7 +1899,7 @@
     "answer0": "The minnow",
     "sentence_switched": "Look! there is a duck swimming right below that minnow! [it] had better get away to safety fast!",
     "correct_answer": "The minnow",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 0
   },
   {
@@ -1910,7 +1910,7 @@
     "answer0": "The shark",
     "sentence_switched": "Look! there is a duck swimming right below that shark! [it] had better get away to safety fast!",
     "correct_answer": "The duck",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 0
   },
   {
@@ -2131,7 +2131,7 @@
     "sentence_switched": "I stuck a carrot through a pin. when i pulled the carrot out, [it] had a hole.",
     "correct_answer": "The carrot",
     "relational_word": "stick:leave have",
-    "is_associative": 0
+    "is_associative": 2
   },
   {
     "index": 194,
@@ -2141,7 +2141,7 @@
     "answer0": "The pen",
     "sentence_switched": "I couldn't find a spoon, so i tried using a coffee to stir my  pen. but that turned out to be a bad idea, because [it] got full of pen.",
     "correct_answer": "The pen",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 0
   },
   {
@@ -2152,7 +2152,7 @@
     "answer0": "The pen",
     "sentence_switched": "I couldn't find a spoon, so i tried using a coffee to stir my  pen. but that turned out to be a bad idea, because [it] got full of ink.",
     "correct_answer": "The coffee",
-    "relational_word": "",
+    "relational_word": "none",
     "is_associative": 0
   },
   {
@@ -2164,7 +2164,7 @@
     "sentence_switched": "Fred follows steve's example in everything. [he] admires him hugely.",
     "correct_answer": "Steve",
     "relational_word": "follow:admire/influence",
-    "is_associative": 0
+    "is_associative": 2
   },
   {
     "index": 197,
@@ -2175,7 +2175,7 @@
     "sentence_switched": "Fred follows steve's example in everything. [he] influences him hugely.",
     "correct_answer": "Fred",
     "relational_word": "follow:admire/influence",
-    "is_associative": 0
+    "is_associative": 2
   },
   {
     "index": 198,
@@ -2229,7 +2229,7 @@
     "answer0": "John",
     "sentence_switched": "Bill hired john to take care of [him] .",
     "correct_answer": "John",
-    "relational_word": "",
+    "relational_word": "hire/hire oneself to:take care of",
     "is_associative": 0
   },
   {
@@ -2240,7 +2240,7 @@
     "answer0": "John",
     "sentence_switched": "Bill hired himself out to john to take care of [him] .",
     "correct_answer": "Bill",
-    "relational_word": "",
+    "relational_word": "hire/hire oneself to:take care of",
     "is_associative": 0
   },
   {
@@ -2274,7 +2274,7 @@
     "sentence_switched": "Sam xenophanes's biography of the spartan general goodman conveys a vivid sense of the difficulties [he] faced in his research.",
     "correct_answer": "Goodman",
     "relational_word": "none",
-    "is_associative": 0
+    "is_associative": 2
   },
   {
     "index": 207,
@@ -2285,7 +2285,7 @@
     "sentence_switched": "Sam xenophanes's biography of the spartan general goodman conveys a vivid sense of the difficulties [he] faced in his childhood.",
     "correct_answer": "Xenophanes",
     "relational_word": "none",
-    "is_associative": 0
+    "is_associative": 2
   },
   {
     "index": 208,
@@ -2295,7 +2295,7 @@
     "answer0": "Emma",
     "sentence_switched": "Emma had died long ago, and [her] education had been managed by an excellent woman as governess.",
     "correct_answer": "Emma",
-    "relational_word": "",
+    "relational_word": "mother:education place",
     "is_associative": 0
   },
   {
@@ -2306,7 +2306,7 @@
     "answer0": "Emma",
     "sentence_switched": "Emma had died long ago, and [her] place had been taken by an excellent woman as governess.",
     "correct_answer": "Emma's mother",
-    "relational_word": "",
+    "relational_word": "mother:education place",
     "is_associative": 0
   },
   {
@@ -2405,7 +2405,7 @@
     "answer0": "Dan",
     "sentence_switched": "Bill took the rear seat while dan claimed the front because [his] \"dibs!\" was slow.",
     "correct_answer": "Dan",
-    "relational_word": "",
+    "relational_word": "?",
     "is_associative": 0
   },
   {
@@ -2416,7 +2416,7 @@
     "answer0": "Dan",
     "sentence_switched": "Bill took the rear seat while dan claimed the front because [his] \"dibs!\" was quicker.",
     "correct_answer": "Bill",
-    "relational_word": "",
+    "relational_word": "?",
     "is_associative": 0
   },
   {
@@ -2449,7 +2449,7 @@
     "answer0": "Andrea",
     "sentence_switched": "As susan in the crop duster passed over andrea, [she] could see the landing strip.",
     "correct_answer": "Andrea",
-    "relational_word": "",
+    "relational_word": "?",
     "is_associative": 0
   },
   {
@@ -2460,7 +2460,7 @@
     "answer0": "Andrea",
     "sentence_switched": "As susan in the crop duster passed over andrea, [she] could see the landing gear.",
     "correct_answer": "Susan",
-    "relational_word": "",
+    "relational_word": "?",
     "is_associative": 0
   },
   {
@@ -2989,7 +2989,7 @@
     "sentence_switched": "Rebecca believed that carol suspected that [she] had stolen the watch.",
     "correct_answer": "Carol",
     "relational_word": "suspect regret",
-    "is_associative": 0
+    "is_associative": 2
   },
   {
     "index": 272,
@@ -3000,6 +3000,6 @@
     "sentence_switched": "Rebecca believed that carol regretted that [she] had stolen the watch.",
     "correct_answer": "Rebecca",
     "relational_word": "suspect regret",
-    "is_associative": 0
+    "is_associative": 2
   }
 ]
