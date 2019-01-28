@@ -1,0 +1,8 @@
+The trophy doesn't fit into the brown suitcase because the [trophy] is too large.   A because B
+The trophy doesn't fit into the brown suitcase because the [suitcase] is too small. A because B
+The brown suitcase doesn't hold the trophy because the [trophy] is too large.  A because B
+The brown suitcase doesn't hold the trophy because the [suitcase] is too small.  A because B
+The trophy can fit into the brown suitcase because the [trophy] is so small. ~A because ~B
+The trophy can fit into the brown suitcase because the [suitcase] is so large. ~A because ~B
+The brown suitcase can hold the trophy because the [trophy] is so small. ~A because ~B
+The brown suitcase can fit into the trophy because the [suitcase] is so large. ~A because ~B
