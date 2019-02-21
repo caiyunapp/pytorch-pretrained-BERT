@@ -503,7 +503,7 @@ class PreTrainedBertModel(nn.Module):
         # Load config
         config_file = os.path.join(serialization_dir, CONFIG_NAME)
         config = BertConfig.from_json_file(config_file)
-        logger.info("Model config {}".format(config))
+        # logger.info("Model config {}".format(config))  # XD
         # Instantiate model.
         model = cls(config, *inputs, **kwargs)
         if state_dict is None:
