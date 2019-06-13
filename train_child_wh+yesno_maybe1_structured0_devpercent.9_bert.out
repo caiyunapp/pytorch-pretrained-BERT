@@ -1,0 +1,58 @@
+06/13/2019 10:53:50 - INFO - pytorch_pretrained_bert.tokenization -   loading vocabulary file /nas/pretrain-bert/pretrain-pytorch/bert-base-uncased-vocab.txt
+06/13/2019 10:53:50 - INFO - pytorch_pretrained_bert.tokenization -   loading vocabulary file /nas/pretrain-bert/pretrain-pytorch/bert-base-uncased-vocab.txt
+06/13/2019 10:53:50 - INFO - run_child_finetuning -   num_sent = 11520
+06/13/2019 10:53:54 - INFO - run_child_finetuning -   num_train_examples = 1152
+06/13/2019 10:53:54 - INFO - run_child_finetuning -   num_train_steps = 216
+06/13/2019 10:53:54 - INFO - run_child_finetuning -   device: cuda n_gpu: 1
+06/13/2019 10:53:54 - INFO - pytorch_pretrained_bert.modeling -   loading archive file /nas/pretrain-bert/pretrain-pytorch/bert-base-uncased
+06/13/2019 10:53:54 - INFO - pytorch_pretrained_bert.modeling -   Model config {
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "max_position_embeddings": 512,
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+06/13/2019 10:53:57 - INFO - pytorch_pretrained_bert.modeling -   Weights from pretrained model not used in BertForMaskedLM: ['cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+06/13/2019 10:53:59 - INFO - run_child_finetuning -   Epoch 0
+06/13/2019 10:53:59 - INFO - run_child_finetuning -   Evaluating on train set...
+06/13/2019 10:53:59 - INFO - run_child_finetuning -   Evaluating on valid set...
+Epoch:   0%|          | 0/6 [00:00<?, ?it/s]06/13/2019 10:54:06 - INFO - run_child_finetuning -   Epoch 1
+06/13/2019 10:54:06 - INFO - run_child_finetuning -   Evaluating on train set...
+06/13/2019 10:54:11 - INFO - run_child_finetuning -   ***** Eval results *****
+06/13/2019 10:54:11 - INFO - run_child_finetuning -     eval_accuracy = 0.6623263888888888
+06/13/2019 10:54:11 - INFO - run_child_finetuning -     eval_loss = 0.5625421967771318
+06/13/2019 10:54:11 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/13/2019 10:54:55 - INFO - run_child_finetuning -   ***** Eval results *****
+06/13/2019 10:54:55 - INFO - run_child_finetuning -     eval_accuracy = 0.6636766975308642
+06/13/2019 10:54:55 - INFO - run_child_finetuning -     eval_loss = 0.5706202494509426
+Epoch:  17%|█▋        | 1/6 [00:55<04:39, 55.86s/it]06/13/2019 10:55:01 - INFO - run_child_finetuning -   Epoch 2
+06/13/2019 10:55:01 - INFO - run_child_finetuning -   Evaluating on train set...
+06/13/2019 10:55:06 - INFO - run_child_finetuning -   ***** Eval results *****
+06/13/2019 10:55:06 - INFO - run_child_finetuning -     eval_accuracy = 0.6545138888888888
+06/13/2019 10:55:06 - INFO - run_child_finetuning -     eval_loss = 0.5412885016865201
+06/13/2019 10:55:06 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/13/2019 10:55:51 - INFO - run_child_finetuning -   ***** Eval results *****
+06/13/2019 10:55:51 - INFO - run_child_finetuning -     eval_accuracy = 0.6588541666666666
+06/13/2019 10:55:51 - INFO - run_child_finetuning -     eval_loss = 0.535978705794723
+Epoch:  33%|███▎      | 2/6 [01:51<03:42, 55.71s/it]06/13/2019 10:55:57 - INFO - run_child_finetuning -   Epoch 3
+06/13/2019 10:55:57 - INFO - run_child_finetuning -   Evaluating on train set...
+06/13/2019 10:56:02 - INFO - run_child_finetuning -   ***** Eval results *****
+06/13/2019 10:56:02 - INFO - run_child_finetuning -     eval_accuracy = 0.8229166666666666
+06/13/2019 10:56:02 - INFO - run_child_finetuning -     eval_loss = 0.4437167743841807
+06/13/2019 10:56:02 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/13/2019 10:56:46 - INFO - run_child_finetuning -   ***** Eval results *****
+06/13/2019 10:56:46 - INFO - run_child_finetuning -     eval_accuracy = 0.8076774691358025
+06/13/2019 10:56:46 - INFO - run_child_finetuning -     eval_loss = 0.453352129753725
+Epoch:  50%|█████     | 3/6 [02:46<02:46, 55.62s/it]06/13/2019 10:56:52 - INFO - run_child_finetuning -   Epoch 4
+06/13/2019 10:56:52 - INFO - run_child_finetuning -   Evaluating on train set...
+06/13/2019 10:56:57 - INFO - run_child_finetuning -   ***** Eval results *****
+06/13/2019 10:56:57 - INFO - run_child_finetuning -     eval_accuracy = 0.7065972222222222
+06/13/2019 10:56:57 - INFO - run_child_finetuning -     eval_loss = 0.41622011529074776
+06/13/2019 10:56:57 - INFO - run_child_finetuning -   Evaluating on valid set...

@@ -1,0 +1,46 @@
+06/09/2019 17:12:50 - INFO - pytorch_pretrained_bert.tokenization -   loading vocabulary file /nas/pretrain-bert/pretrain-pytorch/bert-base-uncased-vocab.txt
+06/09/2019 17:12:50 - INFO - pytorch_pretrained_bert.tokenization -   loading vocabulary file /nas/pretrain-bert/pretrain-pytorch/bert-base-uncased-vocab.txt
+06/09/2019 17:13:01 - INFO - run_child_finetuning -   device: cuda n_gpu: 1
+06/09/2019 17:13:01 - INFO - pytorch_pretrained_bert.modeling -   loading archive file /nas/pretrain-bert/pretrain-pytorch/bert-base-uncased
+06/09/2019 17:13:01 - INFO - pytorch_pretrained_bert.modeling -   Model config {
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "max_position_embeddings": 512,
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+06/09/2019 17:13:04 - INFO - pytorch_pretrained_bert.modeling -   Weights from pretrained model not used in BertForMaskedLM: ['cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+06/09/2019 17:13:06 - INFO - run_child_finetuning -   Epoch 0
+06/09/2019 17:13:06 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 17:13:06 - INFO - run_child_finetuning -   Evaluating on valid set...
+Epoch:   0%|          | 0/6 [00:00<?, ?it/s]06/09/2019 17:14:07 - INFO - run_child_finetuning -   Epoch 1
+06/09/2019 17:14:07 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 17:14:56 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 17:14:56 - INFO - run_child_finetuning -     eval_accuracy = 0.9953993055555556
+06/09/2019 17:14:56 - INFO - run_child_finetuning -     eval_loss = 0.012648471527629428
+06/09/2019 17:14:56 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 17:15:45 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 17:15:45 - INFO - run_child_finetuning -     eval_accuracy = 0.9960069444444445
+06/09/2019 17:15:45 - INFO - run_child_finetuning -     eval_loss = 0.011573168055878744
+Epoch:  17%|█▋        | 1/6 [02:38<13:13, 158.72s/it]06/09/2019 17:16:46 - INFO - run_child_finetuning -   Epoch 2
+06/09/2019 17:16:46 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 17:17:35 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 17:17:35 - INFO - run_child_finetuning -     eval_accuracy = 1.0
+06/09/2019 17:17:35 - INFO - run_child_finetuning -     eval_loss = 3.866354624430338e-06
+06/09/2019 17:17:35 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 17:18:23 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 17:18:23 - INFO - run_child_finetuning -     eval_accuracy = 1.0
+06/09/2019 17:18:23 - INFO - run_child_finetuning -     eval_loss = 3.90575991736518e-06
+Epoch:  33%|███▎      | 2/6 [05:17<10:34, 158.69s/it]06/09/2019 17:19:24 - INFO - run_child_finetuning -   Epoch 3
+06/09/2019 17:19:24 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 17:20:13 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 17:20:13 - INFO - run_child_finetuning -     eval_accuracy = 1.0
+06/09/2019 17:20:13 - INFO - run_child_finetuning -     eval_loss = 1.955197917090522e-06
+06/09/2019 17:20:13 - INFO - run_child_finetuning -   Evaluating on valid set...

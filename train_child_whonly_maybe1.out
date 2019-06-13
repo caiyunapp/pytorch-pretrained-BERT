@@ -1,0 +1,927 @@
+Warning:  apex was installed without --cpp_ext.  Falling back to Python flatten and unflatten.
+Warning:  apex was installed without --cuda_ext. Fused syncbn kernels will be unavailable.  Python fallbacks will be used instead.
+Warning:  apex was installed without --cuda_ext.  FusedAdam will be unavailable.
+Warning:  apex was installed without --cuda_ext.  FusedLayerNorm will be unavailable.
+Better speed can be achieved with apex installed from https://www.github.com/nvidia/apex.
+06/09/2019 15:39:53 - INFO - pytorch_pretrained_bert.tokenization -   loading vocabulary file /nas/pretrain-bert/pretrain-pytorch/bert-base-uncased-vocab.txt
+06/09/2019 15:39:53 - INFO - pytorch_pretrained_bert.tokenization -   loading vocabulary file /nas/pretrain-bert/pretrain-pytorch/bert-base-uncased-vocab.txt
+Namespace(dev_percent=0.5, do_eval=True, do_lower_case=True, do_train=True, eval_batch_size=128, gradient_accumulation_steps=1, learning_rate=0.0005, max_seq_length=128, no_cuda=False, num_train_epochs=100, seed=42, train_batch_size=32, warmup_proportion=0.1)
+num_sent = 7680 -> 5760
+num_train_steps = 12000
+06/09/2019 15:39:59 - INFO - run_child_finetuning -   device: cuda n_gpu: 1
+06/09/2019 15:40:05 - INFO - run_child_finetuning -   Epoch 0
+06/09/2019 15:40:05 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:40:05 - INFO - run_child_finetuning -   Evaluating on valid set...
+Epoch:   0%|          | 0/100 [00:00<?, ?it/s]global_step 0, lr = 0.000000
+06/09/2019 15:40:08 - INFO - run_child_finetuning -   Epoch 1
+06/09/2019 15:40:08 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:40:17 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:40:17 - INFO - run_child_finetuning -     eval_accuracy = 0.0
+06/09/2019 15:40:17 - INFO - run_child_finetuning -     eval_loss = 10.288118934631347
+06/09/2019 15:40:17 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:40:26 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:40:26 - INFO - run_child_finetuning -     eval_accuracy = 0.0
+06/09/2019 15:40:26 - INFO - run_child_finetuning -     eval_loss = 10.287244733174642
+Epoch:   1%|          | 1/100 [00:21<35:16, 21.38s/it]06/09/2019 15:40:29 - INFO - run_child_finetuning -   Epoch 2
+06/09/2019 15:40:29 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:40:39 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:40:39 - INFO - run_child_finetuning -     eval_accuracy = 0.2513020833333333
+06/09/2019 15:40:39 - INFO - run_child_finetuning -     eval_loss = 9.610994752248128
+06/09/2019 15:40:39 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:40:48 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:40:48 - INFO - run_child_finetuning -     eval_accuracy = 0.24869791666666666
+06/09/2019 15:40:48 - INFO - run_child_finetuning -     eval_loss = 9.619353167215984
+Epoch:   2%|▏         | 2/100 [00:42<34:58, 21.41s/it]06/09/2019 15:40:51 - INFO - run_child_finetuning -   Epoch 3
+06/09/2019 15:40:51 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:41:00 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:41:00 - INFO - run_child_finetuning -     eval_accuracy = 0.2513020833333333
+06/09/2019 15:41:00 - INFO - run_child_finetuning -     eval_loss = 8.678418286641438
+06/09/2019 15:41:00 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:41:09 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:41:09 - INFO - run_child_finetuning -     eval_accuracy = 0.24869791666666666
+06/09/2019 15:41:09 - INFO - run_child_finetuning -     eval_loss = 8.687403615315755
+Epoch:   3%|▎         | 3/100 [01:04<34:38, 21.43s/it]06/09/2019 15:41:12 - INFO - run_child_finetuning -   Epoch 4
+06/09/2019 15:41:12 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:41:21 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:41:21 - INFO - run_child_finetuning -     eval_accuracy = 0.2513020833333333
+06/09/2019 15:41:21 - INFO - run_child_finetuning -     eval_loss = 7.024093643824259
+06/09/2019 15:41:21 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:41:30 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:41:30 - INFO - run_child_finetuning -     eval_accuracy = 0.24869791666666666
+06/09/2019 15:41:30 - INFO - run_child_finetuning -     eval_loss = 7.035476016998291
+Epoch:   4%|▍         | 4/100 [01:25<34:13, 21.39s/it]06/09/2019 15:41:34 - INFO - run_child_finetuning -   Epoch 5
+06/09/2019 15:41:34 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:41:43 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:41:43 - INFO - run_child_finetuning -     eval_accuracy = 0.2513020833333333
+06/09/2019 15:41:43 - INFO - run_child_finetuning -     eval_loss = 4.2968794504801435
+06/09/2019 15:41:43 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:41:52 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:41:52 - INFO - run_child_finetuning -     eval_accuracy = 0.24869791666666666
+06/09/2019 15:41:52 - INFO - run_child_finetuning -     eval_loss = 4.308896064758301
+Epoch:   5%|▌         | 5/100 [01:46<33:47, 21.34s/it]06/09/2019 15:41:55 - INFO - run_child_finetuning -   Epoch 6
+06/09/2019 15:41:55 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:42:04 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:42:04 - INFO - run_child_finetuning -     eval_accuracy = 0.2513020833333333
+06/09/2019 15:42:04 - INFO - run_child_finetuning -     eval_loss = 2.1254741589228314
+06/09/2019 15:42:04 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:42:13 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:42:13 - INFO - run_child_finetuning -     eval_accuracy = 0.24869791666666666
+06/09/2019 15:42:13 - INFO - run_child_finetuning -     eval_loss = 2.1320284843444823
+Epoch:   6%|▌         | 6/100 [02:08<33:22, 21.30s/it]06/09/2019 15:42:16 - INFO - run_child_finetuning -   Epoch 7
+06/09/2019 15:42:16 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:42:25 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:42:25 - INFO - run_child_finetuning -     eval_accuracy = 0.2513020833333333
+06/09/2019 15:42:25 - INFO - run_child_finetuning -     eval_loss = 1.9510137796401978
+06/09/2019 15:42:25 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:42:34 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:42:34 - INFO - run_child_finetuning -     eval_accuracy = 0.24869791666666666
+06/09/2019 15:42:34 - INFO - run_child_finetuning -     eval_loss = 1.956139902273814
+Epoch:   7%|▋         | 7/100 [02:29<33:00, 21.30s/it]06/09/2019 15:42:37 - INFO - run_child_finetuning -   Epoch 8
+06/09/2019 15:42:37 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:42:46 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:42:46 - INFO - run_child_finetuning -     eval_accuracy = 0.2513020833333333
+06/09/2019 15:42:46 - INFO - run_child_finetuning -     eval_loss = 1.8528924187024434
+06/09/2019 15:42:46 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:42:55 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:42:55 - INFO - run_child_finetuning -     eval_accuracy = 0.24869791666666666
+06/09/2019 15:42:55 - INFO - run_child_finetuning -     eval_loss = 1.8568577329317728
+Epoch:   8%|▊         | 8/100 [02:50<32:37, 21.28s/it]global_step 1000, lr = 0.000417
+06/09/2019 15:42:58 - INFO - run_child_finetuning -   Epoch 9
+06/09/2019 15:42:58 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:43:08 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:43:08 - INFO - run_child_finetuning -     eval_accuracy = 0.33828125
+06/09/2019 15:43:08 - INFO - run_child_finetuning -     eval_loss = 1.731812846660614
+06/09/2019 15:43:08 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:43:17 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:43:17 - INFO - run_child_finetuning -     eval_accuracy = 0.32838541666666665
+06/09/2019 15:43:17 - INFO - run_child_finetuning -     eval_loss = 1.7453598340352376
+Epoch:   9%|▉         | 9/100 [03:11<32:17, 21.29s/it]06/09/2019 15:43:20 - INFO - run_child_finetuning -   Epoch 10
+06/09/2019 15:43:20 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:43:29 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:43:29 - INFO - run_child_finetuning -     eval_accuracy = 0.33828125
+06/09/2019 15:43:29 - INFO - run_child_finetuning -     eval_loss = 1.7124563892682394
+06/09/2019 15:43:29 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:43:38 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:43:38 - INFO - run_child_finetuning -     eval_accuracy = 0.32838541666666665
+06/09/2019 15:43:38 - INFO - run_child_finetuning -     eval_loss = 1.7274451772371928
+Epoch:  10%|█         | 10/100 [03:33<31:59, 21.32s/it]06/09/2019 15:43:41 - INFO - run_child_finetuning -   Epoch 11
+06/09/2019 15:43:41 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:43:50 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:43:50 - INFO - run_child_finetuning -     eval_accuracy = 0.33828125
+06/09/2019 15:43:50 - INFO - run_child_finetuning -     eval_loss = 1.7018064339955647
+06/09/2019 15:43:50 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:43:59 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:43:59 - INFO - run_child_finetuning -     eval_accuracy = 0.32838541666666665
+06/09/2019 15:43:59 - INFO - run_child_finetuning -     eval_loss = 1.7200396100680033
+Epoch:  11%|█         | 11/100 [03:54<31:38, 21.33s/it]06/09/2019 15:44:03 - INFO - run_child_finetuning -   Epoch 12
+06/09/2019 15:44:03 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:44:12 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:44:12 - INFO - run_child_finetuning -     eval_accuracy = 0.33828125
+06/09/2019 15:44:12 - INFO - run_child_finetuning -     eval_loss = 1.6956328312555948
+06/09/2019 15:44:12 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:44:21 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:44:21 - INFO - run_child_finetuning -     eval_accuracy = 0.32838541666666665
+06/09/2019 15:44:21 - INFO - run_child_finetuning -     eval_loss = 1.711775747934977
+Epoch:  12%|█▏        | 12/100 [04:16<31:21, 21.38s/it]06/09/2019 15:44:24 - INFO - run_child_finetuning -   Epoch 13
+06/09/2019 15:44:24 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:44:33 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:44:33 - INFO - run_child_finetuning -     eval_accuracy = 0.3372395833333333
+06/09/2019 15:44:33 - INFO - run_child_finetuning -     eval_loss = 1.6949657917022705
+06/09/2019 15:44:33 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:44:42 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:44:42 - INFO - run_child_finetuning -     eval_accuracy = 0.3294270833333333
+06/09/2019 15:44:42 - INFO - run_child_finetuning -     eval_loss = 1.7089766065279643
+Epoch:  13%|█▎        | 13/100 [04:37<31:03, 21.42s/it]06/09/2019 15:44:46 - INFO - run_child_finetuning -   Epoch 14
+06/09/2019 15:44:46 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:44:55 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:44:55 - INFO - run_child_finetuning -     eval_accuracy = 0.33828125
+06/09/2019 15:44:55 - INFO - run_child_finetuning -     eval_loss = 1.6892653862635294
+06/09/2019 15:44:55 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:45:04 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:45:04 - INFO - run_child_finetuning -     eval_accuracy = 0.32890625
+06/09/2019 15:45:04 - INFO - run_child_finetuning -     eval_loss = 1.7065973242123922
+Epoch:  14%|█▍        | 14/100 [04:59<30:40, 21.40s/it]06/09/2019 15:45:07 - INFO - run_child_finetuning -   Epoch 15
+06/09/2019 15:45:07 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:45:16 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:45:16 - INFO - run_child_finetuning -     eval_accuracy = 0.3807291666666667
+06/09/2019 15:45:16 - INFO - run_child_finetuning -     eval_loss = 1.6482789715131123
+06/09/2019 15:45:16 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:45:25 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:45:25 - INFO - run_child_finetuning -     eval_accuracy = 0.3651041666666667
+06/09/2019 15:45:25 - INFO - run_child_finetuning -     eval_loss = 1.6695907910664876
+Epoch:  15%|█▌        | 15/100 [05:20<30:15, 21.36s/it]06/09/2019 15:45:28 - INFO - run_child_finetuning -   Epoch 16
+06/09/2019 15:45:28 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:45:37 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:45:37 - INFO - run_child_finetuning -     eval_accuracy = 0.39817708333333335
+06/09/2019 15:45:37 - INFO - run_child_finetuning -     eval_loss = 1.5680845141410829
+06/09/2019 15:45:37 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:45:46 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:45:46 - INFO - run_child_finetuning -     eval_accuracy = 0.38203125
+06/09/2019 15:45:46 - INFO - run_child_finetuning -     eval_loss = 1.59846297899882
+Epoch:  16%|█▌        | 16/100 [05:41<29:52, 21.33s/it]global_step 2000, lr = 0.000417
+06/09/2019 15:45:49 - INFO - run_child_finetuning -   Epoch 17
+06/09/2019 15:45:49 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:45:59 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:45:59 - INFO - run_child_finetuning -     eval_accuracy = 0.4015625
+06/09/2019 15:45:59 - INFO - run_child_finetuning -     eval_loss = 1.5153167168299357
+06/09/2019 15:45:59 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:46:08 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:46:08 - INFO - run_child_finetuning -     eval_accuracy = 0.3828125
+06/09/2019 15:46:08 - INFO - run_child_finetuning -     eval_loss = 1.5529629627863566
+Epoch:  17%|█▋        | 17/100 [06:02<29:29, 21.32s/it]06/09/2019 15:46:11 - INFO - run_child_finetuning -   Epoch 18
+06/09/2019 15:46:11 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:46:20 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:46:20 - INFO - run_child_finetuning -     eval_accuracy = 0.4005208333333333
+06/09/2019 15:46:20 - INFO - run_child_finetuning -     eval_loss = 1.517937441666921
+06/09/2019 15:46:20 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:46:29 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:46:29 - INFO - run_child_finetuning -     eval_accuracy = 0.38385416666666666
+06/09/2019 15:46:29 - INFO - run_child_finetuning -     eval_loss = 1.5570830504099529
+Epoch:  18%|█▊        | 18/100 [06:24<29:11, 21.36s/it]06/09/2019 15:46:32 - INFO - run_child_finetuning -   Epoch 19
+06/09/2019 15:46:32 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:46:42 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:46:42 - INFO - run_child_finetuning -     eval_accuracy = 0.3984375
+06/09/2019 15:46:42 - INFO - run_child_finetuning -     eval_loss = 1.5059125145276389
+06/09/2019 15:46:42 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:46:51 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:46:51 - INFO - run_child_finetuning -     eval_accuracy = 0.3859375
+06/09/2019 15:46:51 - INFO - run_child_finetuning -     eval_loss = 1.5443424185117085
+Epoch:  19%|█▉        | 19/100 [06:45<28:56, 21.44s/it]06/09/2019 15:46:54 - INFO - run_child_finetuning -   Epoch 20
+06/09/2019 15:46:54 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:47:03 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:47:03 - INFO - run_child_finetuning -     eval_accuracy = 0.3984375
+06/09/2019 15:47:03 - INFO - run_child_finetuning -     eval_loss = 1.4856207211812338
+06/09/2019 15:47:03 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:47:12 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:47:12 - INFO - run_child_finetuning -     eval_accuracy = 0.39479166666666665
+06/09/2019 15:47:12 - INFO - run_child_finetuning -     eval_loss = 1.5161133686701456
+Epoch:  20%|██        | 20/100 [07:07<28:33, 21.42s/it]06/09/2019 15:47:15 - INFO - run_child_finetuning -   Epoch 21
+06/09/2019 15:47:15 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:47:24 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:47:24 - INFO - run_child_finetuning -     eval_accuracy = 0.4075520833333333
+06/09/2019 15:47:24 - INFO - run_child_finetuning -     eval_loss = 1.4635906298955281
+06/09/2019 15:47:24 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:47:33 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:47:33 - INFO - run_child_finetuning -     eval_accuracy = 0.38723958333333336
+06/09/2019 15:47:33 - INFO - run_child_finetuning -     eval_loss = 1.4904632846514383
+Epoch:  21%|██        | 21/100 [07:28<28:07, 21.36s/it]06/09/2019 15:47:36 - INFO - run_child_finetuning -   Epoch 22
+06/09/2019 15:47:36 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:47:46 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:47:46 - INFO - run_child_finetuning -     eval_accuracy = 0.4127604166666667
+06/09/2019 15:47:46 - INFO - run_child_finetuning -     eval_loss = 1.4429320216178894
+06/09/2019 15:47:46 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:47:55 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:47:55 - INFO - run_child_finetuning -     eval_accuracy = 0.3932291666666667
+06/09/2019 15:47:55 - INFO - run_child_finetuning -     eval_loss = 1.459842813014984
+Epoch:  22%|██▏       | 22/100 [07:49<27:45, 21.36s/it]06/09/2019 15:47:58 - INFO - run_child_finetuning -   Epoch 23
+06/09/2019 15:47:58 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:48:07 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:48:07 - INFO - run_child_finetuning -     eval_accuracy = 0.38984375
+06/09/2019 15:48:07 - INFO - run_child_finetuning -     eval_loss = 1.4444289922714233
+06/09/2019 15:48:07 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:48:16 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:48:16 - INFO - run_child_finetuning -     eval_accuracy = 0.4049479166666667
+06/09/2019 15:48:16 - INFO - run_child_finetuning -     eval_loss = 1.4620662212371827
+Epoch:  23%|██▎       | 23/100 [08:11<27:23, 21.35s/it]06/09/2019 15:48:19 - INFO - run_child_finetuning -   Epoch 24
+06/09/2019 15:48:19 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:48:28 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:48:28 - INFO - run_child_finetuning -     eval_accuracy = 0.4041666666666667
+06/09/2019 15:48:28 - INFO - run_child_finetuning -     eval_loss = 1.4394046584765117
+06/09/2019 15:48:28 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:48:37 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:48:37 - INFO - run_child_finetuning -     eval_accuracy = 0.39505208333333336
+06/09/2019 15:48:37 - INFO - run_child_finetuning -     eval_loss = 1.4712055563926696
+Epoch:  24%|██▍       | 24/100 [08:32<27:02, 21.35s/it]06/09/2019 15:48:40 - INFO - run_child_finetuning -   Epoch 25
+06/09/2019 15:48:40 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:48:50 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:48:50 - INFO - run_child_finetuning -     eval_accuracy = 0.4125
+06/09/2019 15:48:50 - INFO - run_child_finetuning -     eval_loss = 1.4162175138791402
+06/09/2019 15:48:50 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:48:59 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:48:59 - INFO - run_child_finetuning -     eval_accuracy = 0.3924479166666667
+06/09/2019 15:48:59 - INFO - run_child_finetuning -     eval_loss = 1.436968207359314
+Epoch:  25%|██▌       | 25/100 [08:53<26:40, 21.34s/it]global_step 3000, lr = 0.000375
+06/09/2019 15:49:02 - INFO - run_child_finetuning -   Epoch 26
+06/09/2019 15:49:02 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:49:11 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:49:11 - INFO - run_child_finetuning -     eval_accuracy = 0.41354166666666664
+06/09/2019 15:49:11 - INFO - run_child_finetuning -     eval_loss = 1.4272991021474202
+06/09/2019 15:49:11 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:49:20 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:49:20 - INFO - run_child_finetuning -     eval_accuracy = 0.396875
+06/09/2019 15:49:20 - INFO - run_child_finetuning -     eval_loss = 1.4478838324546814
+Epoch:  26%|██▌       | 26/100 [09:15<26:21, 21.37s/it]06/09/2019 15:49:24 - INFO - run_child_finetuning -   Epoch 27
+06/09/2019 15:49:24 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:49:33 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:49:33 - INFO - run_child_finetuning -     eval_accuracy = 0.4075520833333333
+06/09/2019 15:49:33 - INFO - run_child_finetuning -     eval_loss = 1.3983098030090333
+06/09/2019 15:49:33 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:49:42 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:49:42 - INFO - run_child_finetuning -     eval_accuracy = 0.4005208333333333
+06/09/2019 15:49:42 - INFO - run_child_finetuning -     eval_loss = 1.4199702938397725
+Epoch:  27%|██▋       | 27/100 [09:37<26:11, 21.53s/it]06/09/2019 15:49:45 - INFO - run_child_finetuning -   Epoch 28
+06/09/2019 15:49:45 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:49:54 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:49:54 - INFO - run_child_finetuning -     eval_accuracy = 0.41171875
+06/09/2019 15:49:54 - INFO - run_child_finetuning -     eval_loss = 1.3938977479934693
+06/09/2019 15:49:54 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:50:03 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:50:03 - INFO - run_child_finetuning -     eval_accuracy = 0.39296875
+06/09/2019 15:50:03 - INFO - run_child_finetuning -     eval_loss = 1.4164145390192668
+Epoch:  28%|██▊       | 28/100 [09:58<25:44, 21.45s/it]06/09/2019 15:50:06 - INFO - run_child_finetuning -   Epoch 29
+06/09/2019 15:50:06 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:50:15 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:50:15 - INFO - run_child_finetuning -     eval_accuracy = 0.41484375
+06/09/2019 15:50:15 - INFO - run_child_finetuning -     eval_loss = 1.3933917840321859
+06/09/2019 15:50:15 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:50:25 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:50:25 - INFO - run_child_finetuning -     eval_accuracy = 0.4046875
+06/09/2019 15:50:25 - INFO - run_child_finetuning -     eval_loss = 1.410024090607961
+Epoch:  29%|██▉       | 29/100 [10:19<25:19, 21.41s/it]06/09/2019 15:50:28 - INFO - run_child_finetuning -   Epoch 30
+06/09/2019 15:50:28 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:50:37 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:50:37 - INFO - run_child_finetuning -     eval_accuracy = 0.41041666666666665
+06/09/2019 15:50:37 - INFO - run_child_finetuning -     eval_loss = 1.3855166633923848
+06/09/2019 15:50:37 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:50:46 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:50:46 - INFO - run_child_finetuning -     eval_accuracy = 0.39427083333333335
+06/09/2019 15:50:46 - INFO - run_child_finetuning -     eval_loss = 1.3992408712704976
+Epoch:  30%|███       | 30/100 [10:41<24:56, 21.38s/it]06/09/2019 15:50:49 - INFO - run_child_finetuning -   Epoch 31
+06/09/2019 15:50:49 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:50:58 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:50:58 - INFO - run_child_finetuning -     eval_accuracy = 0.4197916666666667
+06/09/2019 15:50:58 - INFO - run_child_finetuning -     eval_loss = 1.3496504346529643
+06/09/2019 15:50:58 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:51:07 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:51:07 - INFO - run_child_finetuning -     eval_accuracy = 0.41510416666666666
+06/09/2019 15:51:07 - INFO - run_child_finetuning -     eval_loss = 1.3602684179941813
+Epoch:  31%|███       | 31/100 [11:02<24:33, 21.36s/it]06/09/2019 15:51:10 - INFO - run_child_finetuning -   Epoch 32
+06/09/2019 15:51:10 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:51:19 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:51:19 - INFO - run_child_finetuning -     eval_accuracy = 0.4236979166666667
+06/09/2019 15:51:19 - INFO - run_child_finetuning -     eval_loss = 1.3127880573272706
+06/09/2019 15:51:19 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:51:28 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:51:28 - INFO - run_child_finetuning -     eval_accuracy = 0.4
+06/09/2019 15:51:28 - INFO - run_child_finetuning -     eval_loss = 1.3291770378748575
+Epoch:  32%|███▏      | 32/100 [11:23<24:10, 21.34s/it]06/09/2019 15:51:31 - INFO - run_child_finetuning -   Epoch 33
+06/09/2019 15:51:31 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:51:41 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:51:41 - INFO - run_child_finetuning -     eval_accuracy = 0.4205729166666667
+06/09/2019 15:51:41 - INFO - run_child_finetuning -     eval_loss = 1.281346050898234
+06/09/2019 15:51:41 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:51:50 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:51:50 - INFO - run_child_finetuning -     eval_accuracy = 0.4044270833333333
+06/09/2019 15:51:50 - INFO - run_child_finetuning -     eval_loss = 1.301168402036031
+Epoch:  33%|███▎      | 33/100 [11:45<23:55, 21.43s/it]global_step 4000, lr = 0.000333
+06/09/2019 15:51:53 - INFO - run_child_finetuning -   Epoch 34
+06/09/2019 15:51:53 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:52:02 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:52:02 - INFO - run_child_finetuning -     eval_accuracy = 0.42161458333333335
+06/09/2019 15:52:02 - INFO - run_child_finetuning -     eval_loss = 1.2768096963564555
+06/09/2019 15:52:02 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:52:12 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:52:12 - INFO - run_child_finetuning -     eval_accuracy = 0.41484375
+06/09/2019 15:52:12 - INFO - run_child_finetuning -     eval_loss = 1.2986963113149008
+Epoch:  34%|███▍      | 34/100 [12:06<23:34, 21.44s/it]06/09/2019 15:52:15 - INFO - run_child_finetuning -   Epoch 35
+06/09/2019 15:52:15 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:52:24 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:52:24 - INFO - run_child_finetuning -     eval_accuracy = 0.43463541666666666
+06/09/2019 15:52:24 - INFO - run_child_finetuning -     eval_loss = 1.2412511547406515
+06/09/2019 15:52:24 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:52:33 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:52:33 - INFO - run_child_finetuning -     eval_accuracy = 0.42421875
+06/09/2019 15:52:33 - INFO - run_child_finetuning -     eval_loss = 1.265562605857849
+Epoch:  35%|███▌      | 35/100 [12:27<23:08, 21.37s/it]06/09/2019 15:52:36 - INFO - run_child_finetuning -   Epoch 36
+06/09/2019 15:52:36 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:52:45 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:52:45 - INFO - run_child_finetuning -     eval_accuracy = 0.43072916666666666
+06/09/2019 15:52:45 - INFO - run_child_finetuning -     eval_loss = 1.2473716815312703
+06/09/2019 15:52:45 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:52:54 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:52:54 - INFO - run_child_finetuning -     eval_accuracy = 0.4158854166666667
+06/09/2019 15:52:54 - INFO - run_child_finetuning -     eval_loss = 1.273726431528727
+Epoch:  36%|███▌      | 36/100 [12:49<22:46, 21.36s/it]06/09/2019 15:52:57 - INFO - run_child_finetuning -   Epoch 37
+06/09/2019 15:52:57 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:53:06 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:53:06 - INFO - run_child_finetuning -     eval_accuracy = 0.4348958333333333
+06/09/2019 15:53:06 - INFO - run_child_finetuning -     eval_loss = 1.2266408443450927
+06/09/2019 15:53:06 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:53:15 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:53:15 - INFO - run_child_finetuning -     eval_accuracy = 0.41848958333333336
+06/09/2019 15:53:15 - INFO - run_child_finetuning -     eval_loss = 1.2485870083173116
+Epoch:  37%|███▋      | 37/100 [13:10<22:24, 21.34s/it]06/09/2019 15:53:18 - INFO - run_child_finetuning -   Epoch 38
+06/09/2019 15:53:18 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:53:28 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:53:28 - INFO - run_child_finetuning -     eval_accuracy = 0.44140625
+06/09/2019 15:53:28 - INFO - run_child_finetuning -     eval_loss = 1.2204381068547567
+06/09/2019 15:53:28 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:53:37 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:53:37 - INFO - run_child_finetuning -     eval_accuracy = 0.42213541666666665
+06/09/2019 15:53:37 - INFO - run_child_finetuning -     eval_loss = 1.2446540673573812
+Epoch:  38%|███▊      | 38/100 [13:31<22:01, 21.31s/it]06/09/2019 15:53:40 - INFO - run_child_finetuning -   Epoch 39
+06/09/2019 15:53:40 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:53:49 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:53:49 - INFO - run_child_finetuning -     eval_accuracy = 0.44609375
+06/09/2019 15:53:49 - INFO - run_child_finetuning -     eval_loss = 1.2047672748565674
+06/09/2019 15:53:49 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:53:58 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:53:58 - INFO - run_child_finetuning -     eval_accuracy = 0.4278645833333333
+06/09/2019 15:53:58 - INFO - run_child_finetuning -     eval_loss = 1.2247422099113465
+Epoch:  39%|███▉      | 39/100 [13:53<21:40, 21.32s/it]06/09/2019 15:54:01 - INFO - run_child_finetuning -   Epoch 40
+06/09/2019 15:54:01 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:54:10 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:54:10 - INFO - run_child_finetuning -     eval_accuracy = 0.4427083333333333
+06/09/2019 15:54:10 - INFO - run_child_finetuning -     eval_loss = 1.2017305970191956
+06/09/2019 15:54:10 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:54:19 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:54:19 - INFO - run_child_finetuning -     eval_accuracy = 0.4244791666666667
+06/09/2019 15:54:19 - INFO - run_child_finetuning -     eval_loss = 1.225922127564748
+Epoch:  40%|████      | 40/100 [14:14<21:17, 21.29s/it]06/09/2019 15:54:22 - INFO - run_child_finetuning -   Epoch 41
+06/09/2019 15:54:22 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:54:31 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:54:31 - INFO - run_child_finetuning -     eval_accuracy = 0.44869791666666664
+06/09/2019 15:54:31 - INFO - run_child_finetuning -     eval_loss = 1.187364935874939
+06/09/2019 15:54:31 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:54:40 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:54:40 - INFO - run_child_finetuning -     eval_accuracy = 0.43463541666666666
+06/09/2019 15:54:40 - INFO - run_child_finetuning -     eval_loss = 1.208890942732493
+Epoch:  41%|████      | 41/100 [14:35<20:55, 21.27s/it]global_step 5000, lr = 0.000292
+06/09/2019 15:54:44 - INFO - run_child_finetuning -   Epoch 42
+06/09/2019 15:54:44 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:54:53 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:54:53 - INFO - run_child_finetuning -     eval_accuracy = 0.44869791666666664
+06/09/2019 15:54:53 - INFO - run_child_finetuning -     eval_loss = 1.1868085384368896
+06/09/2019 15:54:53 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:55:02 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:55:02 - INFO - run_child_finetuning -     eval_accuracy = 0.43385416666666665
+06/09/2019 15:55:02 - INFO - run_child_finetuning -     eval_loss = 1.2071413437525431
+Epoch:  42%|████▏     | 42/100 [14:56<20:33, 21.27s/it]06/09/2019 15:55:05 - INFO - run_child_finetuning -   Epoch 43
+06/09/2019 15:55:05 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:55:14 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:55:14 - INFO - run_child_finetuning -     eval_accuracy = 0.44635416666666666
+06/09/2019 15:55:14 - INFO - run_child_finetuning -     eval_loss = 1.1852548758188883
+06/09/2019 15:55:14 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:55:23 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:55:23 - INFO - run_child_finetuning -     eval_accuracy = 0.4236979166666667
+06/09/2019 15:55:23 - INFO - run_child_finetuning -     eval_loss = 1.2056999882062276
+Epoch:  43%|████▎     | 43/100 [15:18<20:21, 21.42s/it]06/09/2019 15:55:27 - INFO - run_child_finetuning -   Epoch 44
+06/09/2019 15:55:27 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:55:36 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:55:36 - INFO - run_child_finetuning -     eval_accuracy = 0.44505208333333335
+06/09/2019 15:55:36 - INFO - run_child_finetuning -     eval_loss = 1.1813907305399576
+06/09/2019 15:55:36 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:55:45 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:55:45 - INFO - run_child_finetuning -     eval_accuracy = 0.42630208333333336
+06/09/2019 15:55:45 - INFO - run_child_finetuning -     eval_loss = 1.2018688003222147
+Epoch:  44%|████▍     | 44/100 [15:40<20:06, 21.55s/it]06/09/2019 15:55:49 - INFO - run_child_finetuning -   Epoch 45
+06/09/2019 15:55:49 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:55:58 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:55:58 - INFO - run_child_finetuning -     eval_accuracy = 0.44479166666666664
+06/09/2019 15:55:58 - INFO - run_child_finetuning -     eval_loss = 1.181001031398773
+06/09/2019 15:55:58 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:56:07 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:56:07 - INFO - run_child_finetuning -     eval_accuracy = 0.425
+06/09/2019 15:56:07 - INFO - run_child_finetuning -     eval_loss = 1.2026040116945902
+Epoch:  45%|████▌     | 45/100 [16:02<19:51, 21.66s/it]06/09/2019 15:56:11 - INFO - run_child_finetuning -   Epoch 46
+06/09/2019 15:56:11 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:56:20 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:56:20 - INFO - run_child_finetuning -     eval_accuracy = 0.45
+06/09/2019 15:56:20 - INFO - run_child_finetuning -     eval_loss = 1.1735859751701354
+06/09/2019 15:56:20 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:56:29 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:56:29 - INFO - run_child_finetuning -     eval_accuracy = 0.4322916666666667
+06/09/2019 15:56:29 - INFO - run_child_finetuning -     eval_loss = 1.194596787293752
+Epoch:  46%|████▌     | 46/100 [16:24<19:32, 21.72s/it]06/09/2019 15:56:32 - INFO - run_child_finetuning -   Epoch 47
+06/09/2019 15:56:32 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:56:41 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:56:41 - INFO - run_child_finetuning -     eval_accuracy = 0.45260416666666664
+06/09/2019 15:56:41 - INFO - run_child_finetuning -     eval_loss = 1.1700354139010112
+06/09/2019 15:56:41 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:56:50 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:56:50 - INFO - run_child_finetuning -     eval_accuracy = 0.43802083333333336
+06/09/2019 15:56:50 - INFO - run_child_finetuning -     eval_loss = 1.1882615129152934
+Epoch:  47%|████▋     | 47/100 [16:45<19:05, 21.61s/it]06/09/2019 15:56:53 - INFO - run_child_finetuning -   Epoch 48
+06/09/2019 15:56:53 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:57:02 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:57:02 - INFO - run_child_finetuning -     eval_accuracy = 0.45026041666666666
+06/09/2019 15:57:02 - INFO - run_child_finetuning -     eval_loss = 1.1689149538675945
+06/09/2019 15:57:02 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:57:11 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:57:11 - INFO - run_child_finetuning -     eval_accuracy = 0.42890625
+06/09/2019 15:57:11 - INFO - run_child_finetuning -     eval_loss = 1.1882620692253112
+Epoch:  48%|████▊     | 48/100 [17:06<18:31, 21.37s/it]06/09/2019 15:57:14 - INFO - run_child_finetuning -   Epoch 49
+06/09/2019 15:57:14 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:57:23 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:57:23 - INFO - run_child_finetuning -     eval_accuracy = 0.45859375
+06/09/2019 15:57:23 - INFO - run_child_finetuning -     eval_loss = 1.1711990316708882
+06/09/2019 15:57:23 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:57:32 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:57:32 - INFO - run_child_finetuning -     eval_accuracy = 0.440625
+06/09/2019 15:57:32 - INFO - run_child_finetuning -     eval_loss = 1.191744323571523
+Epoch:  49%|████▉     | 49/100 [17:27<18:05, 21.29s/it]06/09/2019 15:57:35 - INFO - run_child_finetuning -   Epoch 50
+06/09/2019 15:57:35 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:57:44 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:57:44 - INFO - run_child_finetuning -     eval_accuracy = 0.45260416666666664
+06/09/2019 15:57:44 - INFO - run_child_finetuning -     eval_loss = 1.1700339833895366
+06/09/2019 15:57:44 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:57:53 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:57:53 - INFO - run_child_finetuning -     eval_accuracy = 0.43411458333333336
+06/09/2019 15:57:53 - INFO - run_child_finetuning -     eval_loss = 1.1905707399050394
+Epoch:  50%|█████     | 50/100 [17:48<17:37, 21.16s/it]global_step 6000, lr = 0.000250
+06/09/2019 15:57:56 - INFO - run_child_finetuning -   Epoch 51
+06/09/2019 15:57:56 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:58:05 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:58:05 - INFO - run_child_finetuning -     eval_accuracy = 0.45078125
+06/09/2019 15:58:05 - INFO - run_child_finetuning -     eval_loss = 1.1678339163462321
+06/09/2019 15:58:05 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:58:14 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:58:14 - INFO - run_child_finetuning -     eval_accuracy = 0.428125
+06/09/2019 15:58:14 - INFO - run_child_finetuning -     eval_loss = 1.189613652229309
+Epoch:  51%|█████     | 51/100 [18:09<17:18, 21.20s/it]06/09/2019 15:58:18 - INFO - run_child_finetuning -   Epoch 52
+06/09/2019 15:58:18 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:58:27 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:58:27 - INFO - run_child_finetuning -     eval_accuracy = 0.45625
+06/09/2019 15:58:27 - INFO - run_child_finetuning -     eval_loss = 1.16595645348231
+06/09/2019 15:58:27 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:58:36 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:58:36 - INFO - run_child_finetuning -     eval_accuracy = 0.43359375
+06/09/2019 15:58:36 - INFO - run_child_finetuning -     eval_loss = 1.1863872567812601
+Epoch:  52%|█████▏    | 52/100 [18:31<16:59, 21.24s/it]06/09/2019 15:58:39 - INFO - run_child_finetuning -   Epoch 53
+06/09/2019 15:58:39 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:58:48 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:58:48 - INFO - run_child_finetuning -     eval_accuracy = 0.4747395833333333
+06/09/2019 15:58:48 - INFO - run_child_finetuning -     eval_loss = 1.1691422859827678
+06/09/2019 15:58:48 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:58:57 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:58:57 - INFO - run_child_finetuning -     eval_accuracy = 0.45338541666666665
+06/09/2019 15:58:57 - INFO - run_child_finetuning -     eval_loss = 1.1869710326194762
+Epoch:  53%|█████▎    | 53/100 [18:52<16:40, 21.30s/it]06/09/2019 15:59:00 - INFO - run_child_finetuning -   Epoch 54
+06/09/2019 15:59:00 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:59:10 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:59:10 - INFO - run_child_finetuning -     eval_accuracy = 0.45859375
+06/09/2019 15:59:10 - INFO - run_child_finetuning -     eval_loss = 1.1656273245811462
+06/09/2019 15:59:10 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:59:19 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:59:19 - INFO - run_child_finetuning -     eval_accuracy = 0.43697916666666664
+06/09/2019 15:59:19 - INFO - run_child_finetuning -     eval_loss = 1.1842815160751343
+Epoch:  54%|█████▍    | 54/100 [19:13<16:21, 21.34s/it]06/09/2019 15:59:22 - INFO - run_child_finetuning -   Epoch 55
+06/09/2019 15:59:22 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:59:31 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:59:31 - INFO - run_child_finetuning -     eval_accuracy = 0.45703125
+06/09/2019 15:59:31 - INFO - run_child_finetuning -     eval_loss = 1.1621954480806986
+06/09/2019 15:59:31 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 15:59:40 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:59:40 - INFO - run_child_finetuning -     eval_accuracy = 0.4328125
+06/09/2019 15:59:40 - INFO - run_child_finetuning -     eval_loss = 1.181724448998769
+Epoch:  55%|█████▌    | 55/100 [19:35<16:00, 21.34s/it]06/09/2019 15:59:43 - INFO - run_child_finetuning -   Epoch 56
+06/09/2019 15:59:43 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 15:59:52 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 15:59:52 - INFO - run_child_finetuning -     eval_accuracy = 0.4588541666666667
+06/09/2019 15:59:52 - INFO - run_child_finetuning -     eval_loss = 1.1631317138671875
+06/09/2019 15:59:52 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:00:01 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:00:01 - INFO - run_child_finetuning -     eval_accuracy = 0.43802083333333336
+06/09/2019 16:00:01 - INFO - run_child_finetuning -     eval_loss = 1.1823657035827637
+Epoch:  56%|█████▌    | 56/100 [19:56<15:39, 21.34s/it]06/09/2019 16:00:05 - INFO - run_child_finetuning -   Epoch 57
+06/09/2019 16:00:05 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:00:14 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:00:14 - INFO - run_child_finetuning -     eval_accuracy = 0.46822916666666664
+06/09/2019 16:00:14 - INFO - run_child_finetuning -     eval_loss = 1.1596996029218039
+06/09/2019 16:00:14 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:00:23 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:00:23 - INFO - run_child_finetuning -     eval_accuracy = 0.43854166666666666
+06/09/2019 16:00:23 - INFO - run_child_finetuning -     eval_loss = 1.1767595052719115
+Epoch:  57%|█████▋    | 57/100 [20:17<15:16, 21.31s/it]06/09/2019 16:00:26 - INFO - run_child_finetuning -   Epoch 58
+06/09/2019 16:00:26 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:00:35 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:00:35 - INFO - run_child_finetuning -     eval_accuracy = 0.465625
+06/09/2019 16:00:35 - INFO - run_child_finetuning -     eval_loss = 1.1614286621411642
+06/09/2019 16:00:35 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:00:44 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:00:44 - INFO - run_child_finetuning -     eval_accuracy = 0.4393229166666667
+06/09/2019 16:00:44 - INFO - run_child_finetuning -     eval_loss = 1.181220257282257
+Epoch:  58%|█████▊    | 58/100 [20:39<14:54, 21.31s/it]global_step 7000, lr = 0.000208
+06/09/2019 16:00:47 - INFO - run_child_finetuning -   Epoch 59
+06/09/2019 16:00:47 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:00:56 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:00:56 - INFO - run_child_finetuning -     eval_accuracy = 0.45807291666666666
+06/09/2019 16:00:56 - INFO - run_child_finetuning -     eval_loss = 1.1608444213867188
+06/09/2019 16:00:56 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:01:05 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:01:05 - INFO - run_child_finetuning -     eval_accuracy = 0.43671875
+06/09/2019 16:01:05 - INFO - run_child_finetuning -     eval_loss = 1.1821097215016683
+Epoch:  59%|█████▉    | 59/100 [21:00<14:33, 21.30s/it]06/09/2019 16:01:08 - INFO - run_child_finetuning -   Epoch 60
+06/09/2019 16:01:08 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:01:17 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:01:17 - INFO - run_child_finetuning -     eval_accuracy = 0.46848958333333335
+06/09/2019 16:01:17 - INFO - run_child_finetuning -     eval_loss = 1.158363163471222
+06/09/2019 16:01:17 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:01:26 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:01:26 - INFO - run_child_finetuning -     eval_accuracy = 0.44947916666666665
+06/09/2019 16:01:26 - INFO - run_child_finetuning -     eval_loss = 1.1783655683199565
+Epoch:  60%|██████    | 60/100 [21:21<14:12, 21.30s/it]06/09/2019 16:01:30 - INFO - run_child_finetuning -   Epoch 61
+06/09/2019 16:01:30 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:01:39 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:01:39 - INFO - run_child_finetuning -     eval_accuracy = 0.46067708333333335
+06/09/2019 16:01:39 - INFO - run_child_finetuning -     eval_loss = 1.1594597935676574
+06/09/2019 16:01:39 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:01:48 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:01:48 - INFO - run_child_finetuning -     eval_accuracy = 0.4317708333333333
+06/09/2019 16:01:48 - INFO - run_child_finetuning -     eval_loss = 1.1793289581934612
+Epoch:  61%|██████    | 61/100 [21:43<13:50, 21.30s/it]06/09/2019 16:01:51 - INFO - run_child_finetuning -   Epoch 62
+06/09/2019 16:01:51 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:02:00 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:02:00 - INFO - run_child_finetuning -     eval_accuracy = 0.453125
+06/09/2019 16:02:00 - INFO - run_child_finetuning -     eval_loss = 1.160952134927114
+06/09/2019 16:02:00 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:02:09 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:02:09 - INFO - run_child_finetuning -     eval_accuracy = 0.4395833333333333
+06/09/2019 16:02:09 - INFO - run_child_finetuning -     eval_loss = 1.1802945017814637
+Epoch:  62%|██████▏   | 62/100 [22:04<13:29, 21.30s/it]06/09/2019 16:02:12 - INFO - run_child_finetuning -   Epoch 63
+06/09/2019 16:02:12 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:02:21 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:02:21 - INFO - run_child_finetuning -     eval_accuracy = 0.46796875
+06/09/2019 16:02:21 - INFO - run_child_finetuning -     eval_loss = 1.1578695933024088
+06/09/2019 16:02:21 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:02:30 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:02:30 - INFO - run_child_finetuning -     eval_accuracy = 0.4432291666666667
+06/09/2019 16:02:30 - INFO - run_child_finetuning -     eval_loss = 1.1770392616589864
+Epoch:  63%|██████▎   | 63/100 [22:25<13:07, 21.29s/it]06/09/2019 16:02:34 - INFO - run_child_finetuning -   Epoch 64
+06/09/2019 16:02:34 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:02:43 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:02:43 - INFO - run_child_finetuning -     eval_accuracy = 0.46927083333333336
+06/09/2019 16:02:43 - INFO - run_child_finetuning -     eval_loss = 1.1570025642712911
+06/09/2019 16:02:43 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:02:52 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:02:52 - INFO - run_child_finetuning -     eval_accuracy = 0.44140625
+06/09/2019 16:02:52 - INFO - run_child_finetuning -     eval_loss = 1.1763667941093445
+Epoch:  64%|██████▍   | 64/100 [22:47<12:48, 21.36s/it]06/09/2019 16:02:55 - INFO - run_child_finetuning -   Epoch 65
+06/09/2019 16:02:55 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:03:05 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:03:05 - INFO - run_child_finetuning -     eval_accuracy = 0.4622395833333333
+06/09/2019 16:03:05 - INFO - run_child_finetuning -     eval_loss = 1.1565377632776896
+06/09/2019 16:03:05 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:03:14 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:03:14 - INFO - run_child_finetuning -     eval_accuracy = 0.43776041666666665
+06/09/2019 16:03:14 - INFO - run_child_finetuning -     eval_loss = 1.1754586100578308
+Epoch:  65%|██████▌   | 65/100 [23:09<12:35, 21.58s/it]06/09/2019 16:03:17 - INFO - run_child_finetuning -   Epoch 66
+06/09/2019 16:03:17 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:03:26 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:03:26 - INFO - run_child_finetuning -     eval_accuracy = 0.45989583333333334
+06/09/2019 16:03:26 - INFO - run_child_finetuning -     eval_loss = 1.1607839663823445
+06/09/2019 16:03:26 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:03:35 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:03:35 - INFO - run_child_finetuning -     eval_accuracy = 0.43203125
+06/09/2019 16:03:35 - INFO - run_child_finetuning -     eval_loss = 1.1818639596303304
+Epoch:  66%|██████▌   | 66/100 [23:30<12:13, 21.57s/it]global_step 8000, lr = 0.000167
+06/09/2019 16:03:39 - INFO - run_child_finetuning -   Epoch 67
+06/09/2019 16:03:39 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:03:48 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:03:48 - INFO - run_child_finetuning -     eval_accuracy = 0.465625
+06/09/2019 16:03:48 - INFO - run_child_finetuning -     eval_loss = 1.1558271606763204
+06/09/2019 16:03:48 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:03:57 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:03:57 - INFO - run_child_finetuning -     eval_accuracy = 0.4356770833333333
+06/09/2019 16:03:57 - INFO - run_child_finetuning -     eval_loss = 1.1755498846371968
+Epoch:  67%|██████▋   | 67/100 [23:52<11:50, 21.53s/it]06/09/2019 16:04:00 - INFO - run_child_finetuning -   Epoch 68
+06/09/2019 16:04:00 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:04:09 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:04:09 - INFO - run_child_finetuning -     eval_accuracy = 0.46901041666666665
+06/09/2019 16:04:09 - INFO - run_child_finetuning -     eval_loss = 1.1564050555229186
+06/09/2019 16:04:09 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:04:18 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:04:18 - INFO - run_child_finetuning -     eval_accuracy = 0.44114583333333335
+06/09/2019 16:04:18 - INFO - run_child_finetuning -     eval_loss = 1.17632870276769
+Epoch:  68%|██████▊   | 68/100 [24:13<11:26, 21.45s/it]06/09/2019 16:04:21 - INFO - run_child_finetuning -   Epoch 69
+06/09/2019 16:04:21 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:04:30 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:04:30 - INFO - run_child_finetuning -     eval_accuracy = 0.46484375
+06/09/2019 16:04:30 - INFO - run_child_finetuning -     eval_loss = 1.1570552309354147
+06/09/2019 16:04:30 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:04:39 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:04:39 - INFO - run_child_finetuning -     eval_accuracy = 0.440625
+06/09/2019 16:04:39 - INFO - run_child_finetuning -     eval_loss = 1.177697773774465
+Epoch:  69%|██████▉   | 69/100 [24:34<11:03, 21.39s/it]06/09/2019 16:04:43 - INFO - run_child_finetuning -   Epoch 70
+06/09/2019 16:04:43 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:04:52 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:04:52 - INFO - run_child_finetuning -     eval_accuracy = 0.46171875
+06/09/2019 16:04:52 - INFO - run_child_finetuning -     eval_loss = 1.1563173532485962
+06/09/2019 16:04:52 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:05:01 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:05:01 - INFO - run_child_finetuning -     eval_accuracy = 0.43411458333333336
+06/09/2019 16:05:01 - INFO - run_child_finetuning -     eval_loss = 1.1765872995058695
+Epoch:  70%|███████   | 70/100 [24:56<10:43, 21.45s/it]06/09/2019 16:05:04 - INFO - run_child_finetuning -   Epoch 71
+06/09/2019 16:05:04 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:05:13 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:05:13 - INFO - run_child_finetuning -     eval_accuracy = 0.48125
+06/09/2019 16:05:13 - INFO - run_child_finetuning -     eval_loss = 1.1571079214413962
+06/09/2019 16:05:14 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:05:23 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:05:23 - INFO - run_child_finetuning -     eval_accuracy = 0.45546875
+06/09/2019 16:05:23 - INFO - run_child_finetuning -     eval_loss = 1.1776538411776225
+Epoch:  71%|███████   | 71/100 [25:17<10:22, 21.47s/it]06/09/2019 16:05:26 - INFO - run_child_finetuning -   Epoch 72
+06/09/2019 16:05:26 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:05:35 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:05:35 - INFO - run_child_finetuning -     eval_accuracy = 0.47760416666666666
+06/09/2019 16:05:35 - INFO - run_child_finetuning -     eval_loss = 1.1595537662506104
+06/09/2019 16:05:35 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:05:44 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:05:44 - INFO - run_child_finetuning -     eval_accuracy = 0.45234375
+06/09/2019 16:05:44 - INFO - run_child_finetuning -     eval_loss = 1.1812318245569864
+Epoch:  72%|███████▏  | 72/100 [25:39<09:59, 21.42s/it]06/09/2019 16:05:47 - INFO - run_child_finetuning -   Epoch 73
+06/09/2019 16:05:47 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:05:56 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:05:56 - INFO - run_child_finetuning -     eval_accuracy = 0.46640625
+06/09/2019 16:05:56 - INFO - run_child_finetuning -     eval_loss = 1.155181360244751
+06/09/2019 16:05:56 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:06:05 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:06:05 - INFO - run_child_finetuning -     eval_accuracy = 0.4393229166666667
+06/09/2019 16:06:05 - INFO - run_child_finetuning -     eval_loss = 1.176360563437144
+Epoch:  73%|███████▎  | 73/100 [26:00<09:37, 21.37s/it]06/09/2019 16:06:08 - INFO - run_child_finetuning -   Epoch 74
+06/09/2019 16:06:08 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:06:17 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:06:17 - INFO - run_child_finetuning -     eval_accuracy = 0.47109375
+06/09/2019 16:06:17 - INFO - run_child_finetuning -     eval_loss = 1.155378019809723
+06/09/2019 16:06:17 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:06:26 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:06:26 - INFO - run_child_finetuning -     eval_accuracy = 0.4434895833333333
+06/09/2019 16:06:26 - INFO - run_child_finetuning -     eval_loss = 1.1756929397583007
+Epoch:  74%|███████▍  | 74/100 [26:21<09:14, 21.35s/it]06/09/2019 16:06:30 - INFO - run_child_finetuning -   Epoch 75
+06/09/2019 16:06:30 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:06:39 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:06:39 - INFO - run_child_finetuning -     eval_accuracy = 0.47317708333333336
+06/09/2019 16:06:39 - INFO - run_child_finetuning -     eval_loss = 1.1564279437065124
+06/09/2019 16:06:39 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:06:48 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:06:48 - INFO - run_child_finetuning -     eval_accuracy = 0.44557291666666665
+06/09/2019 16:06:48 - INFO - run_child_finetuning -     eval_loss = 1.1770438194274901
+Epoch:  75%|███████▌  | 75/100 [26:42<08:52, 21.31s/it]global_step 9000, lr = 0.000125
+06/09/2019 16:06:51 - INFO - run_child_finetuning -   Epoch 76
+06/09/2019 16:06:51 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:07:00 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:07:00 - INFO - run_child_finetuning -     eval_accuracy = 0.48020833333333335
+06/09/2019 16:07:00 - INFO - run_child_finetuning -     eval_loss = 1.1559755563735963
+06/09/2019 16:07:00 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:07:09 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:07:09 - INFO - run_child_finetuning -     eval_accuracy = 0.4557291666666667
+06/09/2019 16:07:09 - INFO - run_child_finetuning -     eval_loss = 1.1763458808263143
+Epoch:  76%|███████▌  | 76/100 [27:04<08:30, 21.29s/it]06/09/2019 16:07:12 - INFO - run_child_finetuning -   Epoch 77
+06/09/2019 16:07:12 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:07:21 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:07:21 - INFO - run_child_finetuning -     eval_accuracy = 0.48359375
+06/09/2019 16:07:21 - INFO - run_child_finetuning -     eval_loss = 1.1536372224489848
+06/09/2019 16:07:21 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:07:30 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:07:30 - INFO - run_child_finetuning -     eval_accuracy = 0.45677083333333335
+06/09/2019 16:07:30 - INFO - run_child_finetuning -     eval_loss = 1.1739659905433655
+Epoch:  77%|███████▋  | 77/100 [27:25<08:09, 21.27s/it]06/09/2019 16:07:33 - INFO - run_child_finetuning -   Epoch 78
+06/09/2019 16:07:33 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:07:43 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:07:43 - INFO - run_child_finetuning -     eval_accuracy = 0.47265625
+06/09/2019 16:07:43 - INFO - run_child_finetuning -     eval_loss = 1.1533228158950806
+06/09/2019 16:07:43 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:07:52 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:07:52 - INFO - run_child_finetuning -     eval_accuracy = 0.4466145833333333
+06/09/2019 16:07:52 - INFO - run_child_finetuning -     eval_loss = 1.1739091753959656
+Epoch:  78%|███████▊  | 78/100 [27:46<07:49, 21.35s/it]06/09/2019 16:07:55 - INFO - run_child_finetuning -   Epoch 79
+06/09/2019 16:07:55 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:08:04 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:08:04 - INFO - run_child_finetuning -     eval_accuracy = 0.4822916666666667
+06/09/2019 16:08:04 - INFO - run_child_finetuning -     eval_loss = 1.1528844038645427
+06/09/2019 16:08:04 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:08:13 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:08:13 - INFO - run_child_finetuning -     eval_accuracy = 0.45677083333333335
+06/09/2019 16:08:13 - INFO - run_child_finetuning -     eval_loss = 1.1734905958175659
+Epoch:  79%|███████▉  | 79/100 [28:08<07:28, 21.37s/it]06/09/2019 16:08:16 - INFO - run_child_finetuning -   Epoch 80
+06/09/2019 16:08:16 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:08:25 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:08:25 - INFO - run_child_finetuning -     eval_accuracy = 0.47630208333333335
+06/09/2019 16:08:25 - INFO - run_child_finetuning -     eval_loss = 1.15223118464152
+06/09/2019 16:08:25 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:08:34 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:08:34 - INFO - run_child_finetuning -     eval_accuracy = 0.45
+06/09/2019 16:08:34 - INFO - run_child_finetuning -     eval_loss = 1.172407575448354
+Epoch:  80%|████████  | 80/100 [28:29<07:07, 21.35s/it]06/09/2019 16:08:38 - INFO - run_child_finetuning -   Epoch 81
+06/09/2019 16:08:38 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:08:47 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:08:47 - INFO - run_child_finetuning -     eval_accuracy = 0.48541666666666666
+06/09/2019 16:08:47 - INFO - run_child_finetuning -     eval_loss = 1.1519500454266867
+06/09/2019 16:08:47 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:08:56 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:08:56 - INFO - run_child_finetuning -     eval_accuracy = 0.45755208333333336
+06/09/2019 16:08:56 - INFO - run_child_finetuning -     eval_loss = 1.1726038654645283
+Epoch:  81%|████████  | 81/100 [28:50<06:45, 21.32s/it]06/09/2019 16:08:59 - INFO - run_child_finetuning -   Epoch 82
+06/09/2019 16:08:59 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:09:08 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:09:08 - INFO - run_child_finetuning -     eval_accuracy = 0.48098958333333336
+06/09/2019 16:09:08 - INFO - run_child_finetuning -     eval_loss = 1.1528759916623434
+06/09/2019 16:09:08 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:09:17 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:09:17 - INFO - run_child_finetuning -     eval_accuracy = 0.45286458333333335
+06/09/2019 16:09:17 - INFO - run_child_finetuning -     eval_loss = 1.1737507224082946
+Epoch:  82%|████████▏ | 82/100 [29:12<06:23, 21.31s/it]06/09/2019 16:09:20 - INFO - run_child_finetuning -   Epoch 83
+06/09/2019 16:09:20 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:09:29 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:09:29 - INFO - run_child_finetuning -     eval_accuracy = 0.47578125
+06/09/2019 16:09:29 - INFO - run_child_finetuning -     eval_loss = 1.152758530775706
+06/09/2019 16:09:29 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:09:38 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:09:38 - INFO - run_child_finetuning -     eval_accuracy = 0.45208333333333334
+06/09/2019 16:09:38 - INFO - run_child_finetuning -     eval_loss = 1.1734139919281006
+Epoch:  83%|████████▎ | 83/100 [29:33<06:02, 21.30s/it]global_step 10000, lr = 0.000083
+06/09/2019 16:09:41 - INFO - run_child_finetuning -   Epoch 84
+06/09/2019 16:09:41 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:09:50 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:09:50 - INFO - run_child_finetuning -     eval_accuracy = 0.4791666666666667
+06/09/2019 16:09:50 - INFO - run_child_finetuning -     eval_loss = 1.152427065372467
+06/09/2019 16:09:50 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:09:59 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:09:59 - INFO - run_child_finetuning -     eval_accuracy = 0.4546875
+06/09/2019 16:09:59 - INFO - run_child_finetuning -     eval_loss = 1.1731745282808939
+Epoch:  84%|████████▍ | 84/100 [29:54<05:40, 21.30s/it]06/09/2019 16:10:03 - INFO - run_child_finetuning -   Epoch 85
+06/09/2019 16:10:03 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:10:12 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:10:12 - INFO - run_child_finetuning -     eval_accuracy = 0.47604166666666664
+06/09/2019 16:10:12 - INFO - run_child_finetuning -     eval_loss = 1.1516807198524475
+06/09/2019 16:10:12 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:10:21 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:10:21 - INFO - run_child_finetuning -     eval_accuracy = 0.45390625
+06/09/2019 16:10:21 - INFO - run_child_finetuning -     eval_loss = 1.1724275628725687
+Epoch:  85%|████████▌ | 85/100 [30:16<05:19, 21.32s/it]06/09/2019 16:10:24 - INFO - run_child_finetuning -   Epoch 86
+06/09/2019 16:10:24 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:10:33 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:10:33 - INFO - run_child_finetuning -     eval_accuracy = 0.4783854166666667
+06/09/2019 16:10:33 - INFO - run_child_finetuning -     eval_loss = 1.1515019059181213
+06/09/2019 16:10:33 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:10:42 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:10:42 - INFO - run_child_finetuning -     eval_accuracy = 0.45286458333333335
+06/09/2019 16:10:42 - INFO - run_child_finetuning -     eval_loss = 1.1724952697753905
+Epoch:  86%|████████▌ | 86/100 [30:37<04:58, 21.30s/it]06/09/2019 16:10:45 - INFO - run_child_finetuning -   Epoch 87
+06/09/2019 16:10:45 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:10:54 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:10:54 - INFO - run_child_finetuning -     eval_accuracy = 0.4825520833333333
+06/09/2019 16:10:54 - INFO - run_child_finetuning -     eval_loss = 1.1516013781229655
+06/09/2019 16:10:54 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:11:03 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:11:03 - INFO - run_child_finetuning -     eval_accuracy = 0.459375
+06/09/2019 16:11:03 - INFO - run_child_finetuning -     eval_loss = 1.1726846774419148
+Epoch:  87%|████████▋ | 87/100 [30:58<04:36, 21.29s/it]06/09/2019 16:11:07 - INFO - run_child_finetuning -   Epoch 88
+06/09/2019 16:11:07 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:11:16 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:11:16 - INFO - run_child_finetuning -     eval_accuracy = 0.4875
+06/09/2019 16:11:16 - INFO - run_child_finetuning -     eval_loss = 1.1517522851626079
+06/09/2019 16:11:16 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:11:25 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:11:25 - INFO - run_child_finetuning -     eval_accuracy = 0.4627604166666667
+06/09/2019 16:11:25 - INFO - run_child_finetuning -     eval_loss = 1.1729002475738526
+Epoch:  88%|████████▊ | 88/100 [31:20<04:16, 21.38s/it]06/09/2019 16:11:28 - INFO - run_child_finetuning -   Epoch 89
+06/09/2019 16:11:28 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:11:37 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:11:37 - INFO - run_child_finetuning -     eval_accuracy = 0.4869791666666667
+06/09/2019 16:11:37 - INFO - run_child_finetuning -     eval_loss = 1.1517663200696309
+06/09/2019 16:11:37 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:11:46 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:11:46 - INFO - run_child_finetuning -     eval_accuracy = 0.4609375
+06/09/2019 16:11:46 - INFO - run_child_finetuning -     eval_loss = 1.1729353070259094
+Epoch:  89%|████████▉ | 89/100 [31:41<03:55, 21.38s/it]06/09/2019 16:11:49 - INFO - run_child_finetuning -   Epoch 90
+06/09/2019 16:11:49 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:11:59 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:11:59 - INFO - run_child_finetuning -     eval_accuracy = 0.48723958333333334
+06/09/2019 16:11:59 - INFO - run_child_finetuning -     eval_loss = 1.1517739613850912
+06/09/2019 16:11:59 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:12:08 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:12:08 - INFO - run_child_finetuning -     eval_accuracy = 0.45989583333333334
+06/09/2019 16:12:08 - INFO - run_child_finetuning -     eval_loss = 1.1729595104853312
+Epoch:  90%|█████████ | 90/100 [32:02<03:33, 21.34s/it]06/09/2019 16:12:11 - INFO - run_child_finetuning -   Epoch 91
+06/09/2019 16:12:11 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:12:20 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:12:20 - INFO - run_child_finetuning -     eval_accuracy = 0.48776041666666664
+06/09/2019 16:12:20 - INFO - run_child_finetuning -     eval_loss = 1.1517146944999694
+06/09/2019 16:12:20 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:12:29 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:12:29 - INFO - run_child_finetuning -     eval_accuracy = 0.4609375
+06/09/2019 16:12:29 - INFO - run_child_finetuning -     eval_loss = 1.1730425715446473
+Epoch:  91%|█████████ | 91/100 [32:24<03:11, 21.33s/it]global_step 11000, lr = 0.000042
+06/09/2019 16:12:32 - INFO - run_child_finetuning -   Epoch 92
+06/09/2019 16:12:32 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:12:41 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:12:41 - INFO - run_child_finetuning -     eval_accuracy = 0.48854166666666665
+06/09/2019 16:12:41 - INFO - run_child_finetuning -     eval_loss = 1.1516720096270243
+06/09/2019 16:12:41 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:12:50 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:12:50 - INFO - run_child_finetuning -     eval_accuracy = 0.4622395833333333
+06/09/2019 16:12:50 - INFO - run_child_finetuning -     eval_loss = 1.1729310393333434
+Epoch:  92%|█████████▏| 92/100 [32:45<02:50, 21.30s/it]06/09/2019 16:12:53 - INFO - run_child_finetuning -   Epoch 93
+06/09/2019 16:12:53 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:13:02 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:13:02 - INFO - run_child_finetuning -     eval_accuracy = 0.48723958333333334
+06/09/2019 16:13:02 - INFO - run_child_finetuning -     eval_loss = 1.151630981763204
+06/09/2019 16:13:02 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:13:11 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:13:11 - INFO - run_child_finetuning -     eval_accuracy = 0.46015625
+06/09/2019 16:13:11 - INFO - run_child_finetuning -     eval_loss = 1.1728946566581726
+Epoch:  93%|█████████▎| 93/100 [33:06<02:29, 21.29s/it]06/09/2019 16:13:15 - INFO - run_child_finetuning -   Epoch 94
+06/09/2019 16:13:15 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:13:24 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:13:24 - INFO - run_child_finetuning -     eval_accuracy = 0.48776041666666664
+06/09/2019 16:13:24 - INFO - run_child_finetuning -     eval_loss = 1.151540986696879
+06/09/2019 16:13:24 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:13:33 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:13:33 - INFO - run_child_finetuning -     eval_accuracy = 0.459375
+06/09/2019 16:13:33 - INFO - run_child_finetuning -     eval_loss = 1.1727864662806193
+Epoch:  94%|█████████▍| 94/100 [33:27<02:07, 21.29s/it]06/09/2019 16:13:36 - INFO - run_child_finetuning -   Epoch 95
+06/09/2019 16:13:36 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:13:45 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:13:45 - INFO - run_child_finetuning -     eval_accuracy = 0.48828125
+06/09/2019 16:13:45 - INFO - run_child_finetuning -     eval_loss = 1.1516513188680013
+06/09/2019 16:13:45 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:13:54 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:13:54 - INFO - run_child_finetuning -     eval_accuracy = 0.45989583333333334
+06/09/2019 16:13:54 - INFO - run_child_finetuning -     eval_loss = 1.1729169527689616
+Epoch:  95%|█████████▌| 95/100 [33:49<01:46, 21.31s/it]06/09/2019 16:13:57 - INFO - run_child_finetuning -   Epoch 96
+06/09/2019 16:13:57 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:14:06 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:14:06 - INFO - run_child_finetuning -     eval_accuracy = 0.48828125
+06/09/2019 16:14:06 - INFO - run_child_finetuning -     eval_loss = 1.1517570972442628
+06/09/2019 16:14:06 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:14:15 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:14:15 - INFO - run_child_finetuning -     eval_accuracy = 0.4596354166666667
+06/09/2019 16:14:15 - INFO - run_child_finetuning -     eval_loss = 1.1730409661928813
+Epoch:  96%|█████████▌| 96/100 [34:10<01:25, 21.33s/it]06/09/2019 16:14:19 - INFO - run_child_finetuning -   Epoch 97
+06/09/2019 16:14:19 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:14:28 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:14:28 - INFO - run_child_finetuning -     eval_accuracy = 0.4875
+06/09/2019 16:14:28 - INFO - run_child_finetuning -     eval_loss = 1.1516884088516235
+06/09/2019 16:14:28 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:14:37 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:14:37 - INFO - run_child_finetuning -     eval_accuracy = 0.4588541666666667
+06/09/2019 16:14:37 - INFO - run_child_finetuning -     eval_loss = 1.1729745586713156
+Epoch:  97%|█████████▋| 97/100 [34:31<01:03, 21.31s/it]06/09/2019 16:14:40 - INFO - run_child_finetuning -   Epoch 98
+06/09/2019 16:14:40 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:14:49 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:14:49 - INFO - run_child_finetuning -     eval_accuracy = 0.4875
+06/09/2019 16:14:49 - INFO - run_child_finetuning -     eval_loss = 1.1516595323880514
+06/09/2019 16:14:49 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:14:58 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:14:58 - INFO - run_child_finetuning -     eval_accuracy = 0.459375
+06/09/2019 16:14:58 - INFO - run_child_finetuning -     eval_loss = 1.1729382395744323
+Epoch:  98%|█████████▊| 98/100 [34:53<00:42, 21.29s/it]06/09/2019 16:15:01 - INFO - run_child_finetuning -   Epoch 99
+06/09/2019 16:15:01 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:15:10 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:15:10 - INFO - run_child_finetuning -     eval_accuracy = 0.48723958333333334
+06/09/2019 16:15:10 - INFO - run_child_finetuning -     eval_loss = 1.151656973361969
+06/09/2019 16:15:10 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:15:19 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:15:19 - INFO - run_child_finetuning -     eval_accuracy = 0.4591145833333333
+06/09/2019 16:15:19 - INFO - run_child_finetuning -     eval_loss = 1.172936220963796
+Epoch:  99%|█████████▉| 99/100 [35:14<00:21, 21.26s/it]06/09/2019 16:15:22 - INFO - run_child_finetuning -   Epoch 100
+06/09/2019 16:15:22 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 16:15:31 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:15:31 - INFO - run_child_finetuning -     eval_accuracy = 0.4875
+06/09/2019 16:15:31 - INFO - run_child_finetuning -     eval_loss = 1.1516541322072347
+06/09/2019 16:15:31 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 16:15:40 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 16:15:40 - INFO - run_child_finetuning -     eval_accuracy = 0.4591145833333333
+06/09/2019 16:15:40 - INFO - run_child_finetuning -     eval_loss = 1.1729336897532145
+Epoch: 100%|██████████| 100/100 [35:35<00:00, 21.29s/it]

@@ -1,0 +1,90 @@
+06/09/2019 23:12:56 - INFO - pytorch_pretrained_bert.tokenization -   loading vocabulary file /nas/pretrain-bert/pretrain-pytorch/bert-base-uncased-vocab.txt
+06/09/2019 23:12:56 - INFO - pytorch_pretrained_bert.tokenization -   loading vocabulary file /nas/pretrain-bert/pretrain-pytorch/bert-base-uncased-vocab.txt
+06/09/2019 23:12:56 - INFO - run_child_finetuning -   num_sent = 15840
+06/09/2019 23:13:00 - INFO - run_child_finetuning -   num_train_steps = 2376
+06/09/2019 23:13:03 - INFO - run_child_finetuning -   device: cuda n_gpu: 1
+06/09/2019 23:13:03 - INFO - pytorch_pretrained_bert.modeling -   loading archive file /nas/pretrain-bert/pretrain-pytorch/bert-base-uncased
+06/09/2019 23:13:03 - INFO - pytorch_pretrained_bert.modeling -   Model config {
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "max_position_embeddings": 512,
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+06/09/2019 23:13:06 - INFO - pytorch_pretrained_bert.modeling -   Weights from pretrained model not used in BertForMaskedLM: ['cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+06/09/2019 23:13:08 - INFO - run_child_finetuning -   Epoch 0
+06/09/2019 23:13:08 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 23:13:08 - INFO - run_child_finetuning -   Evaluating on valid set...
+Epoch:   0%|          | 0/6 [00:00<?, ?it/s]06/09/2019 23:14:23 - INFO - run_child_finetuning -   Epoch 1
+06/09/2019 23:14:23 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 23:15:25 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 23:15:25 - INFO - run_child_finetuning -     eval_accuracy = 0.5427714646464646
+06/09/2019 23:15:25 - INFO - run_child_finetuning -     eval_loss = 0.8991311890910371
+06/09/2019 23:15:25 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 23:15:40 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 23:15:40 - INFO - run_child_finetuning -     eval_accuracy = 0.5173611111111112
+06/09/2019 23:15:40 - INFO - run_child_finetuning -     eval_loss = 0.9608444118499756
+Epoch:  17%|█▋        | 1/6 [02:31<12:39, 151.83s/it]06/09/2019 23:16:54 - INFO - run_child_finetuning -   Epoch 2
+06/09/2019 23:16:54 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 23:17:56 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 23:17:56 - INFO - run_child_finetuning -     eval_accuracy = 0.8828914141414141
+06/09/2019 23:17:56 - INFO - run_child_finetuning -     eval_loss = 0.23883249407464807
+06/09/2019 23:17:56 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 23:18:12 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 23:18:12 - INFO - run_child_finetuning -     eval_accuracy = 0.8753156565656566
+06/09/2019 23:18:12 - INFO - run_child_finetuning -     eval_loss = 0.25644553124904634
+Epoch:  33%|███▎      | 2/6 [05:03<10:07, 151.78s/it]06/09/2019 23:19:27 - INFO - run_child_finetuning -   Epoch 3
+06/09/2019 23:19:27 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 23:20:29 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 23:20:29 - INFO - run_child_finetuning -     eval_accuracy = 0.9648832070707071
+06/09/2019 23:20:29 - INFO - run_child_finetuning -     eval_loss = 0.07392336142183555
+06/09/2019 23:20:29 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 23:20:44 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 23:20:44 - INFO - run_child_finetuning -     eval_accuracy = 0.9573863636363636
+06/09/2019 23:20:44 - INFO - run_child_finetuning -     eval_loss = 0.08134129852056503
+Epoch:  50%|█████     | 3/6 [07:35<07:35, 151.97s/it]06/09/2019 23:21:58 - INFO - run_child_finetuning -   Epoch 4
+06/09/2019 23:21:58 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 23:23:00 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 23:23:00 - INFO - run_child_finetuning -     eval_accuracy = 0.9762468434343434
+06/09/2019 23:23:00 - INFO - run_child_finetuning -     eval_loss = 0.042840146130383616
+06/09/2019 23:23:00 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 23:23:15 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 23:23:15 - INFO - run_child_finetuning -     eval_accuracy = 0.9734848484848485
+06/09/2019 23:23:15 - INFO - run_child_finetuning -     eval_loss = 0.04639983937144279
+Epoch:  67%|██████▋   | 4/6 [10:06<05:03, 151.66s/it]06/09/2019 23:24:29 - INFO - run_child_finetuning -   Epoch 5
+06/09/2019 23:24:29 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 23:25:31 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 23:25:31 - INFO - run_child_finetuning -     eval_accuracy = 0.9786142676767676
+06/09/2019 23:25:31 - INFO - run_child_finetuning -     eval_loss = 0.03604643965008283
+06/09/2019 23:25:31 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 23:25:47 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 23:25:47 - INFO - run_child_finetuning -     eval_accuracy = 0.9719065656565656
+06/09/2019 23:25:47 - INFO - run_child_finetuning -     eval_loss = 0.0415844838321209
+Epoch:  83%|████████▎ | 5/6 [12:38<02:31, 151.68s/it]06/09/2019 23:27:03 - INFO - run_child_finetuning -   Epoch 6
+06/09/2019 23:27:03 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 23:28:05 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 23:28:05 - INFO - run_child_finetuning -     eval_accuracy = 0.978219696969697
+06/09/2019 23:28:05 - INFO - run_child_finetuning -     eval_loss = 0.03498159025353615
+06/09/2019 23:28:05 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 23:28:20 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 23:28:20 - INFO - run_child_finetuning -     eval_accuracy = 0.9709595959595959
+06/09/2019 23:28:20 - INFO - run_child_finetuning -     eval_loss = 0.040734837353229525
+Epoch: 100%|██████████| 6/6 [15:12<00:00, 152.24s/it]
+/home/qsj/miniconda3/bin/python: Error while finding module specification for 'train_child.py' (AttributeError: module 'train_child' has no attribute '__path__')
+Warning:  apex was installed without --cpp_ext.  Falling back to Python flatten and unflatten.
+Warning:  apex was installed without --cuda_ext. Fused syncbn kernels will be unavailable.  Python fallbacks will be used instead.
+Warning:  apex was installed without --cuda_ext.  FusedAdam will be unavailable.
+Warning:  apex was installed without --cuda_ext.  FusedLayerNorm will be unavailable.
+Better speed can be achieved with apex installed from https://www.github.com/nvidia/apex.
+Namespace(dev_percent=0.2, do_eval=True, do_lower_case=True, do_train=True, eval_batch_size=128, gradient_accumulation_steps=1, learning_rate=3e-05, max_seq_length=128, no_cuda=False, num_train_epochs=6.0, seed=42, train_batch_size=32, warmup_proportion=0.1)
+["Emma was cheated by Paul ||| but [Emma] didn't lose a lot of money.", "the desk won't fit through the doorway ||| because the [doorway] isn't wide.", 'Donna obstructed the sight of David ||| although [David] is tall.', "the apples are sold more than the chips ||| so the [chips] shouldn't be made more next time.", "Emma was envied by Peter ||| because [Emma] didn't fail.", 'the chairs could carry all the newspapers ||| although there were not many of the [newspapers].', "Australia defeated Italy ||| because [Australia] wasn't less powerful.", "Canada wasn't conquered by Japan ||| because [Japan] was less powerful.", "the bag of rice hadn't been placed above the bag of noodles ||| so the bag of [noodles] couldn't be moved later.", 'Donna obstructed the sight of John ||| because [Donna] is tall.', "Adele wasn't replaced by Amy as the actress's new name ||| because [Adele] is easy to pronounce.", 'Martin was jealous of Cindy ||| although [Martin] was successful.', 'the pictures could be placed on all the chairs ||| because there were few of the [chairs].', "Cindy didn't receive the tickets of the play from Eric ||| although [Eric] wasn't eager to see it.", "the worker didn't arrive after the police ||| although the [worker] came from far away.", 'Amy is often defeated by Charles at tennis ||| because [Amy] is younger.', 'Amy is seldom defeated by Charles at tennis ||| although [Amy] is younger.', "Linda didn't lose to David in the game ||| but [David] was happy.", "the opponents didn't outnumber the workers ||| but the [workers] were in the minority.", 'the teachers were more in number than the customers ||| so the [teachers] were in the majority.']
+global_step 0, lr = 0.000000
+global_step 1000, lr = 0.000017
+global_step 2000, lr = 0.000005

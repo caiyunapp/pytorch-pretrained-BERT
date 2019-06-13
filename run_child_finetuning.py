@@ -6,20 +6,21 @@ import os
 import logging
 import argparse
 from tqdm import tqdm, trange
+import math
 
 import numpy as np
 import torch
-from torch.utils.data import DataLoader, RandomSampler
+from torch.utils.data import DataLoader, RandomSampler, SequentialSampler
 from torch.utils.data.distributed import DistributedSampler
 
 from pytorch_pretrained_bert.tokenization import BertTokenizer
 from pytorch_pretrained_bert.modeling import BertForPreTraining
 from pytorch_pretrained_bert.optimization import BertAdam
 
-from child_generator import make_sentences
-from child_frames import frames
+# from child_generator import make_sentences
+# from child_frames import frames
 
-from torch.utils.data import Dataset
+from torch.utils.data import Dataset, TensorDataset
 import random
 
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(name)s -   %(message)s',
@@ -34,35 +35,63 @@ def warmup_linear(x, warmup=0.002):
     return 1.0 - x
 
 
+def rejoin_masked_tokens(tokens):
+    out = []
+    while len(tokens) > 0:
+        token = tokens.pop(0)
+        if token not in ['[', ']']:
+            out.append(token)
+        else:
+            assert token == '['
+            next_token = tokens.pop(0)  # the maksed word
+            next_next_token = tokens.pop(0)  # "]" symbol
+            out.append(token + next_token + next_next_token)
+    return out
+
+
 class CHILDDataset(Dataset):
-    def __init__(self, tokenizer, one_sent=True, seq_len=None, dev_percent=0.2):
+    def __init__(self, tokenizer, all_lines, one_sent=False, seq_len=None, dev_percent=0.2):
         self.tokenizer = tokenizer
         self.one_sent = one_sent
         self.seq_len = seq_len
 
-        self.all_lines = []
-        for frame in frames:
-            self.all_lines += make_sentences(**frame)
+        self.all_lines = all_lines
+#         self.all_lines = []
+#         for frame in frames:
+#             self.all_lines += make_sentences(**frame)
 
         random.shuffle(self.all_lines)
 
         self.examples = []
+        cur_id = 0
         for line in self.all_lines:
             t1, t2, is_next_label = self.split_sent(line)
 
             tokens_a = self.tokenizer.tokenize(t1)
-            tokens_b = self.tokenizer.tokenize(t2)
+            tokens_a = rejoin_masked_tokens(tokens_a)
+             
+            if t2 is None:
+                tokens_b = None
+            else:
+                tokens_b = self.tokenizer.tokenize(t2)
+                tokens_b = rejoin_masked_tokens(tokens_b)
 
             example = InputExample(guid=cur_id, tokens_a=tokens_a, tokens_b=tokens_b, is_next=is_next_label)
             self.examples.append(example)
+            cur_id += 1
 
         if self.seq_len is None:
-            self.seq_len = max([len(example.tokens_a) + len(example.tokens_b) + 3 for example in self.examples])
+            # self.seq_len = max([len(example.tokens_a) + 3 for example in self.examples])
+            # if example.tokens_b is not None:
+            #     self.seq_len += len(example.tokens_b)
+            self.seq_len = max([len(example.tokens_a) + len(example.tokens_b) + 3
+                if example.tokens_b is not None else len(example.tokens_a) + 2
+                for example in self.examples])
 
         self.features = [convert_example_to_features(example, self.seq_len, self.tokenizer) for example in self.examples]
 
         self.n_examples = len(self.all_lines)
-        self.n_dev = self.n_examples * dev_percent
+        self.n_dev = int(self.n_examples * dev_percent)
         self.n_train = self.n_examples - self.n_dev
 
     def get_train_examples(self):
@@ -77,6 +106,15 @@ class CHILDDataset(Dataset):
     def get_dev_features(self):
         return self.features[self.n_train:]
 
+    def build_dataset(self, features):
+        all_input_ids = torch.tensor([f.input_ids for f in features], dtype=torch.long)
+        all_input_mask = torch.tensor([f.input_mask for f in features], dtype=torch.long)
+        all_segment_ids = torch.tensor([f.segment_ids for f in features], dtype=torch.long)
+        all_lm_label_ids = torch.tensor([f.lm_label_ids for f in features], dtype=torch.long)
+        all_is_next = torch.tensor([f.is_next for f in features], dtype=torch.long)
+        dataset = TensorDataset(all_input_ids, all_input_mask, all_segment_ids, all_lm_label_ids, all_is_next)
+        return dataset
+        
     def __len__(self):
         return len(self.all_lines)
 
@@ -89,7 +127,7 @@ class CHILDDataset(Dataset):
                 t1 = t1 + " " + t2
                 t2 = None
         else:
-            assert self.one_sent
+            # assert self.one_sent
             t1, t2 = line.strip(), None
         return t1, t2, label
 
@@ -144,8 +182,8 @@ def convert_example_to_features(example, max_seq_length, tokenizer):
     segment_ids.append(0)
 
     if tokens_b is not None and len(tokens_b) > 0:
-        t2_random, t2_label = random_word(tokens_b, tokenizer)
-        lm_label_ids = t2_label + [-1]
+        t2_random, t2_label = mask_word(tokens_b, tokenizer)
+        lm_label_ids += (t2_label + [-1])
 
         for token in tokens_b:
             tokens.append(token)
@@ -166,12 +204,12 @@ def convert_example_to_features(example, max_seq_length, tokenizer):
         segment_ids.append(0)
         lm_label_ids.append(-1)
 
-    assert len(input_ids) == max_seq_length
+    assert len(input_ids) == max_seq_length, '%d != %d' % (len(input_ids), max_seq_length)
     assert len(input_mask) == max_seq_length
     assert len(segment_ids) == max_seq_length
     assert len(lm_label_ids) == max_seq_length
 
-    if example.guid < 5:
+    if example.guid < -5:
         logger.info("*** Example ***")
         logger.info("guid: %s" % (example.guid))
         logger.info("tokens: %s" % " ".join(
@@ -432,12 +470,16 @@ def main():
             torch.save(model_to_save.state_dict(), output_model_file)
 
 
-def validate(model, eval_dataloader):
+def validate(model, dataset, device, batch_size=128, randomized=False):
     model.eval()
     eval_loss, eval_accuracy = 0, 0
     nb_eval_steps, nb_eval_examples = 0, 0
 
-    for input_ids, input_mask, segment_ids, label_ids in tqdm(eval_dataloader, desc="Evaluating"):
+#     for input_ids, input_mask, segment_ids, label_ids, is_next in tqdm(eval_dataloader, desc="Evaluating"):
+    for i, batch_idx in enumerate(get_batch_index(len(dataset), batch_size, randomized=randomized)):
+        batch = tuple(t[batch_idx] for t in dataset.tensors)
+        batch = tuple(t.to(device) for t in batch)
+        input_ids, input_mask, segment_ids, label_ids, is_next = batch
         input_ids = input_ids.to(device)
         input_mask = input_mask.to(device)
         segment_ids = segment_ids.to(device)
@@ -459,20 +501,30 @@ def validate(model, eval_dataloader):
 
     eval_loss = eval_loss / nb_eval_steps
     eval_accuracy = eval_accuracy / nb_eval_examples
-    loss = tr_loss/nb_tr_steps if args.do_train else None
+#     loss = tr_loss/nb_tr_steps if args.do_train else None
     result = {'eval_loss': eval_loss,
-              'eval_accuracy': eval_accuracy,
-              'global_step': global_step,
-              'loss': loss}
+              'eval_accuracy': eval_accuracy,}
+#               'global_step': global_step,
+#               'loss': loss}
 
     logger.info("***** Eval results *****")
     for key in sorted(result.keys()):
         logger.info("  %s = %s", key, str(result[key]))
 
 
+def get_batch_index(dataset_size, batch_size, randomized=False):
+    import math
+    idx_list = list(range(dataset_size))
+    if randomized:
+        random.shuffle(idx_list)
+    n_batches = math.ceil(len(idx_list) / batch_size)
+    return [idx_list[i * batch_size: (i + 1) * batch_size] for i in range(n_batches)]
+
+
 def accuracy(out, labels):
-    outputs = np.argmax(out, axis=1)
-    return int(np.all((outputs == labels)[labels != -1]))
+    outputs = np.argmax(out, axis=-1)
+#     return int(np.all((outputs == labels)[labels != -1]))
+    return int(np.sum((outputs == labels)[labels != -1]))
 
 
 if __name__ == "__main__":

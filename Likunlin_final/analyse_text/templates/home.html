@@ -1,0 +1,307 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <!-- Compiled and minified CSS -->
+	  <!-- Compiled and minified JavaScript -->
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta name="renderer" content="webkit">
+	<style type="text/css">
+		span.wrong {background:#ffffff; border-bottom:3px solid #ff80ab ; transition: background 0.5s,border-bottom 2s;}
+		span.wrong:hover{background: #ffcdd2; border-bottom:3px solid #ff0000 ;}
+		#textarea1 {font-size:20px;min-height:400px;max-height:400px; outline:none;}
+		div#textarea1{white-space: pre-wrap;word-wrap: break-word;word-break: break-word;contenteditable="true";spellcheck="false";}
+        form{display:flex;flex-direction:column ;}
+		.xiaofang{overflow:scroll; height:100vh}
+		.xiaofang::-webkit-scrollbar {display: none;}
+		#delete{text-decoration:line-through;text-decoration-color: red;}
+		p{font-size:20px;display:inline}
+		.collapsible-body{padding:15px;}
+		.background_pic{background:url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554711678869&di=65db4315bf6b05588f7b5c6a188c0e4b&imgtype=0&src=http%3A%2F%2Ffdfs.xmcdn.com%2Fgroup20%2FM06%2FBA%2F82%2FwKgJJ1i-oCLCwhzbAAIceYL3Q1U158.jpg') no-repeat 0px 0px; background-size:cover; background-attachment:fixed}
+	</style>
+    </head>
+
+    <body>
+  
+  <nav class = "#00bfa5 teal accent-4">
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>文本自动修改系统</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href=""><i class="material-icons">search</i></a></li>
+        <li><a href=""><i class="material-icons">view_module</i></a></li>
+        <li><a href=""><i class="material-icons">refresh</i></a></li>
+        <li><a href=""><i class="material-icons">more_vert</i></a></li>
+      </ul>
+    </div>
+  </nav>
+ 
+  <div class="row background_pic">
+	  <div class="col s2" id = "xf" >
+		  <div class="col s8 m12">
+			<div class="card" style="opacity:0.7;">
+			  <div class="card-stacked" >
+				<div class="card-content" style="background-color:rgba(33,42,107,0.38);">
+				  <p style="font-weight:600;color:#ebf882">评价区</p>
+				</div>
+				<div class="card-action" style="background:#1a2261;;opacity:0.9;">
+				  <span class = "white-text" style="color:white;">
+				  </span>
+				</div>
+			  </div>
+			</div>
+		  </div>
+      </div>
+
+      <div class="col s7 hoverable" style="background:#e3f2fd; opacity:0.8;">
+	   
+		<form class="input-field">
+			<button type = "button" class="btn waves-effect waves-light right" id = "btn" style="width:150px;margin-left: auto;">提交文本</button>
+			<div id="textarea1" class="xiaofang" contentEditable='true' name = "q"></div>
+		</form>
+		
+	  </div>
+	  
+	  <div class="col s3">
+		  <ul class="collapsible popout xiaofang" data-collapsible="accordion" >
+
+		  </ul>
+      </div>
+  </div>
+	<script>
+	var suggestions;
+	var tokens;
+	var original_tokens;
+	
+	function deepClone(initalObj) {
+		var obj = {};
+		obj = JSON.parse(JSON.stringify(initalObj));
+		return obj;
+	}
+
+	
+	function modify_suggestions(index,direction){
+		var new_suggestions = new Array();
+		if(direction == 1){
+			for(var key in suggestions){
+				if(key < index)
+					new_suggestions[key] = suggestions[key];
+				else{
+					new_suggestions[(parseInt(key)+1).toString()] = suggestions[key];
+				}
+			}
+		}
+		else if(direction == -1){
+			for(var key in suggestions){
+				if(key < index)
+					new_suggestions[key] = suggestions[key];
+				else{
+					new_suggestions[(parseInt(key)-1).toString()] = suggestions[key];
+				}
+			}	
+		}	
+		suggestions = new_suggestions;
+	}
+	
+	function modify_text(index){ //修改文本，tokens，以及suggestions
+		var tokens = original_tokens;
+		new_text = "";
+		var suggestion = suggestions[index];
+		delete suggestions[index];
+		suggestion_tokens = suggestion.split(" ");
+		if('去掉前面' == suggestion_tokens[0]){
+			tokens.splice(index - 1,1);
+			suggestion_tokens.splice(0,2);
+			modify_suggestions(index,-1);
+			index = index - 1;
+		}
+		else if('去掉后面' == suggestion_tokens[0]){
+			tokens.splice(index + 1,1);
+			suggestion_tokens.splice(0,2);
+			modify_suggestions(index+2,-1);
+		}
+		else if('去掉' == suggestion_tokens[0]){
+			tokens.splice(index,1);
+			suggestion_tokens.splice(0,2);
+			modify_suggestions(index+1,-1);
+		}
+		if('原位置改成' == suggestion_tokens[0])
+			suggestion_tokens.splice(0,1);
+		
+		len_suggest = suggestion_tokens.length;
+		if(len_suggest == 1)
+			tokens[index] = suggestion_tokens[0];
+		else if(len_suggest == 2){
+			tokens.splice(index,0,suggestion_tokens[0]);
+			tokens[index + 1] = suggestion_tokens[1];
+			modify_suggestions(index+1,1);
+		}
+		original_tokens = tokens;
+		var tokens_suggestions = new Array();
+		tokens_suggestions[0] = tokens;
+		tokens_suggestions[1] = suggestions;
+		return tokens_suggestions;
+	}
+	function btn2(id){
+
+		dict = modify_text(id);
+		suggestions = dict[1];
+		tokens = dict[0];
+		output = build_sug(suggestions,tokens);
+		$("ul.xiaofang").html(output);						
+		
+		output2 = set_wrong(suggestions,tokens)
+		$("#textarea1").html(output2);
+	}
+
+
+	function set_wrong(suggestions,tokens)
+	{
+		var output = '';
+		var i = 0;
+		var display_tokens = deepClone(tokens);
+		for(var index in suggestions){
+			var token = display_tokens[index];
+			if(token[0]=='#'){
+			    word = token.slice(2);
+				display_tokens[index] = '##<span class = "wrong" id="'+ i +'" onclick = "list_sug(id)">' + word + '</span>';
+			}
+			else{
+				word = token;
+				display_tokens[index] = '<span class = "wrong" id="'+ i +'" onclick = "list_sug(id)">' + word + '</span>';
+			}
+			i = i + 1;
+		}
+		
+		for(var j = 1;j < display_tokens.length - 1;j++){
+		    if(display_tokens[j][0] == '#'){
+				output = output + display_tokens[j].slice(2);
+			}
+			else if(display_tokens[j]=='[UNK]'){
+				display_tokens[j] = '<br/>'
+				output = output + ' ' + display_tokens[j];
+			}
+			else{
+				output = output + ' ' + display_tokens[j];
+			}
+			
+		}
+		return output;
+	}	
+	
+	function build_sug(suggestions,tokens)
+	{
+		var output = '';
+		var id = 0;
+		for (var index in suggestions)
+		{ 
+		    var token = tokens[index];
+			output = output + '<li><div class="collapsible-header" id="'+ id +'"><i class="material-icons">mode_edit</i>'+ tokens[index] +'</div><div class="collapsible-body" style="background:#e3f2fd; opacity:0.8;"><p id = "delete">'+ tokens[index] + ' </p>   <button type = "button" class="btn waves-effect waves-light right #4dd0e1 cyan lighten-2" onclick = "btn2('+ index +')" style="margin-left: auto;text-transform:none;">'+suggestions[index] +'</button></div></li>';
+            id = id + 1;
+		}
+		if(output == ''){
+			output = '<li><div class="collapsible-header #4caf50"><i class="material-icons">spellcheck</i>没有发现任何错误</div><div class="collapsible-body" style="background:#e3f2fd; opacity:0.8;"><p>恭喜你</p></div></li>';
+		}
+		return output;
+	}
+	
+	function build_gap(avg_gap){
+		var rank = 0;
+		if(avg_gap < 1.1)
+			rank = "优秀";
+		else if(avg_gap < 1.4)
+			rank = "一般";
+		else
+			rank = "错误较多";
+		$("span.white-text").text("平均gap = " + avg_gap.toFixed(2)+ ' ' + rank);
+	}
+	
+	function textInit(e) { //过滤剪切板的粘贴内容
+		e.preventDefault();
+		var text;
+		var clp = (e.originalEvent || e).clipboardData;
+		if (clp === undefined || clp === null) {
+			text = window.clipboardData.getData("text") || "";
+			if (text !== "") {
+				if (window.getSelection) {
+					var newNode = document.createElement("span");
+					newNode.innerHTML = text;
+					window.getSelection().getRangeAt(0).insertNode(newNode);
+				} else {
+					document.selection.createRange().pasteHTML(text);
+				}
+			}
+		} else {
+			text = clp.getData('text/plain') || "";
+			if (text !== "") {
+				document.execCommand('insertText', false, text);
+			}
+		}
+	}
+
+	$(function(){
+		$("#textarea1").on("paste", function (e) {
+			textInit(e)
+		});	
+		
+		$("#btn").click(function(){
+			var text = $("#textarea1").html();
+			text = text.replace(/<div>/g, ' \r\n ');
+			text = text.replace(/<br>/g, ' \r\n ');
+			text = text.replace(/<[^>]+>/g,"");
+			$.get(
+			"/analyse/", 
+			{'text': text}, 
+			function (ret) {
+				dict = JSON.parse(ret);
+				suggestions = dict.suggestions;
+				tokens = dict.tokens;
+				avg_gap = dict.avg_gap;
+				original_tokens = tokens;
+				output = build_sug(suggestions,tokens);
+				$("ul.xiaofang").html(output);						
+				
+				output2 = set_wrong(suggestions,tokens)
+				$("#textarea1").html(output2);						
+				
+				build_gap(avg_gap);
+				$("div.collapsible-header").hover(
+					function(){
+						id = $(this).attr("id");
+						$("span#"+id).css("background", "#ffcdd2");
+					},
+					function(){
+						id = $(this).attr("id");
+						$("span#"+id).css("background", "#ffffff");
+					}
+				);
+			})
+		});
+
+	});
+	
+	
+	
+	function list_sug(id){
+		var index = id;
+		$("div.collapsible-header").eq(index).click();
+	}
+	function list_wrong(id){
+		var index = id;
+		$("span#"+id).css("background", "#ffcdd2");
+	}
+
+</script>			
+
+	
+    </body>
+
+  </html>

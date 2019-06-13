@@ -1,0 +1,14 @@
+Warning:  apex was installed without --cpp_ext.  Falling back to Python flatten and unflatten.
+Warning:  apex was installed without --cuda_ext. Fused syncbn kernels will be unavailable.  Python fallbacks will be used instead.
+Warning:  apex was installed without --cuda_ext.  FusedAdam will be unavailable.
+Warning:  apex was installed without --cuda_ext.  FusedLayerNorm will be unavailable.
+Better speed can be achieved with apex installed from https://www.github.com/nvidia/apex.
+Namespace(dev_percent=0.5, do_eval=True, do_lower_case=True, do_train=True, eval_batch_size=128, gradient_accumulation_steps=1, learning_rate=0.0005, max_seq_length=128, no_cuda=False, num_train_epochs=100, seed=42, train_batch_size=32, warmup_proportion=0.1)
+num_sent = 3840 -> 3840
+num_train_steps = 6000
+global_step 0, lr = 0.000000
+global_step 1000, lr = 0.000417
+global_step 2000, lr = 0.000333
+global_step 3000, lr = 0.000250
+global_step 4000, lr = 0.000167
+global_step 5000, lr = 0.000083

@@ -1,0 +1,32 @@
+06/09/2019 18:11:49 - INFO - pytorch_pretrained_bert.tokenization -   loading vocabulary file /nas/pretrain-bert/pretrain-pytorch/bert-base-uncased-vocab.txt
+06/09/2019 18:11:49 - INFO - pytorch_pretrained_bert.tokenization -   loading vocabulary file /nas/pretrain-bert/pretrain-pytorch/bert-base-uncased-vocab.txt
+06/09/2019 18:12:19 - INFO - run_child_finetuning -   device: cuda n_gpu: 1
+06/09/2019 18:12:19 - INFO - pytorch_pretrained_bert.modeling -   loading archive file /nas/pretrain-bert/pretrain-pytorch/bert-base-uncased
+06/09/2019 18:12:19 - INFO - pytorch_pretrained_bert.modeling -   Model config {
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "max_position_embeddings": 512,
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+06/09/2019 18:12:22 - INFO - pytorch_pretrained_bert.modeling -   Weights from pretrained model not used in BertForMaskedLM: ['cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+06/09/2019 18:12:30 - INFO - run_child_finetuning -   Epoch 0
+06/09/2019 18:12:30 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 18:12:30 - INFO - run_child_finetuning -   Evaluating on valid set...
+Epoch:   0%|          | 0/6 [00:00<?, ?it/s]06/09/2019 18:19:08 - INFO - run_child_finetuning -   Epoch 1
+06/09/2019 18:19:08 - INFO - run_child_finetuning -   Evaluating on train set...
+06/09/2019 18:24:16 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 18:24:16 - INFO - run_child_finetuning -     eval_accuracy = 1.0
+06/09/2019 18:24:16 - INFO - run_child_finetuning -     eval_loss = 1.5385112621717984e-05
+06/09/2019 18:24:16 - INFO - run_child_finetuning -   Evaluating on valid set...
+06/09/2019 18:25:34 - INFO - run_child_finetuning -   ***** Eval results *****
+06/09/2019 18:25:34 - INFO - run_child_finetuning -     eval_accuracy = 1.0
+06/09/2019 18:25:34 - INFO - run_child_finetuning -     eval_loss = 1.532625820901659e-05
+Epoch:  17%|█▋        | 1/6 [13:03<1:05:16, 783.28s/it]
