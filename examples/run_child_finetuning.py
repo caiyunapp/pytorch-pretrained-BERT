@@ -3,17 +3,19 @@ from __future__ import division
 from __future__ import print_function
 
 import os
+import sys
 import logging
 import argparse
 from tqdm import tqdm, trange
+import itertools
 
 import numpy as np
 import torch
-from torch.utils.data import DataLoader, RandomSampler
+from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler
 from torch.utils.data.distributed import DistributedSampler
 
 from pytorch_pretrained_bert.tokenization import BertTokenizer
-from pytorch_pretrained_bert.modeling import BertForPreTraining
+from pytorch_pretrained_bert.modeling import BertForPreTraining, BertForMaskedLM
 from pytorch_pretrained_bert.optimization import BertAdam
 
 from child_generator import make_sentences
@@ -34,36 +36,87 @@ def warmup_linear(x, warmup=0.002):
     return 1.0 - x
 
 
+def rejoin_tokens(tokens):
+    new_tokens = []
+    while len(tokens) > 0:
+        t = tokens.pop(0)
+        if t == "[":
+            t1 = tokens.pop(0)
+            t2 = tokens.pop(0)
+            assert t2 == "]", t2
+            new_tokens.append(t + t1 + t2)
+        else:
+            new_tokens.append(t)
+    return new_tokens
+
+
 class CHILDDataset(Dataset):
-    def __init__(self, tokenizer, one_sent=True, seq_len=None, dev_percent=0.2):
+    def __init__(self, tokenizer, one_sent=False, max_seq_len=None, dev_percent=-1):
         self.tokenizer = tokenizer
         self.one_sent = one_sent
-        self.seq_len = seq_len
+        self.max_seq_len = max_seq_len
 
-        self.all_lines = []
-        for frame in frames:
-            self.all_lines += make_sentences(**frame)
+        if dev_percent == -1:
+            causal_lines, turning_lines, subs_lines = [], [], []
+            for frame in frames:
+                causal_sent, turning_sent, subs_sent = make_sentences(**frame)
+                causal_lines += causal_sent
+                turning_lines += turning_sent
+                subs_lines += subs_sent
+            train_lines = causal_lines + turning_lines
+            dev_lines = list(set(subs_lines) - set(train_lines))
+            self.all_lines = train_lines + dev_lines
+            self.n_dev = len(dev_lines)
+        else:
+            self.all_lines = list(itertools.chain.from_iterable(
+                [make_sentences(**frame)[-1] for frame in frames]))
+            random.shuffle(self.all_lines)
+            self.n_dev = int(round(len(self.all_lines) * dev_percent))
 
-        random.shuffle(self.all_lines)
+        n_all = len(self.all_lines)
+        self.n_train = n_all - self.n_dev
+
+        if type(self.all_lines[0]) == list:
+            n_substitutes = len(self.all_lines[0])
+            assert all(len(substitutes) == n_substitutes for substitutes in self.all_lines)
+            print('flattening all_lines: %d * %d = %d' %
+                (n_all, n_substitutes, n_all * n_substitutes))
+            self.all_lines = list(itertools.chain.from_iterable(self.all_lines))
+            self.n_dev *= n_substitutes
+            self.n_train *= n_substitutes
 
         self.examples = []
+        cur_id = 0
         for line in self.all_lines:
             t1, t2, is_next_label = self.split_sent(line)
 
-            tokens_a = self.tokenizer.tokenize(t1)
-            tokens_b = self.tokenizer.tokenize(t2)
+            tokens_a = rejoin_tokens(self.tokenizer.tokenize(t1))
+            tokens_b = rejoin_tokens(self.tokenizer.tokenize(t2)) if t2 is not None else None
 
             example = InputExample(guid=cur_id, tokens_a=tokens_a, tokens_b=tokens_b, is_next=is_next_label)
             self.examples.append(example)
+            cur_id += 1
 
-        if self.seq_len is None:
-            self.seq_len = max([len(example.tokens_a) + len(example.tokens_b) + 3 for example in self.examples])
+        if self.max_seq_len is None:
+            self.max_seq_len = max([len(example.tokens_a) + len(example.tokens_b) + 3
+                if example.tokens_b is not None else len(example.tokens_a) + 2
+                for example in self.examples])
+            print('max_seq_len =', self.max_seq_len)
 
-        self.features = [convert_example_to_features(example, self.seq_len, self.tokenizer) for example in self.examples]
+        self.features = [convert_example_to_features(example, self.max_seq_len, self.tokenizer) for example in self.examples]
 
-        self.n_examples = len(self.all_lines)
-        self.n_dev = self.n_examples * dev_percent
-        self.n_train = self.n_examples - self.n_dev
+    def split_sent(self, line):
+        label = 0
+        if "|||" in line:
+            t1, t2 = [t.strip() for t in line.split("|||")]
+            assert len(t1) > 0 and len(t2) > 0, "%d %d" % (len(t1), len(t2))
+            if self.one_sent:
+                t1 = t1 + " " + t2
+                t2 = None
+        else:
+            assert self.one_sent
+            t1, t2 = line.strip(), None
+        return t1, t2, label
 
     def get_train_examples(self):
         return self.examples[:self.n_train]
@@ -79,19 +132,6 @@ class CHILDDataset(Dataset):
 
     def __len__(self):
         return len(self.all_lines)
-
-    def split_sent(self, line):
-        label = 0
-        if "|||" in line:
-            t1, t2 = [t.strip() for t in line.split("|||")]
-            assert len(t1) > 0 and len(t2) > 0, "%d %d" % (len(t1), len(t2))
-            if self.one_sent:
-                t1 = t1 + " " + t2
-                t2 = None
-        else:
-            assert self.one_sent
-            t1, t2 = line.strip(), None
-        return t1, t2, label
 
 
 class InputExample(object):
@@ -130,7 +170,7 @@ def convert_example_to_features(example, max_seq_length, tokenizer):
     tokens_a = example.tokens_a
     tokens_b = example.tokens_b
 
-    t1_random, t1_label = mask_word(tokens_a, tokenizer)
+    t1_masked, t1_label = mask_word(tokens_a, tokenizer)
     lm_label_ids = [-1] + t1_label + [-1]
 
     tokens = []
@@ -144,8 +184,8 @@ def convert_example_to_features(example, max_seq_length, tokenizer):
     segment_ids.append(0)
 
     if tokens_b is not None and len(tokens_b) > 0:
-        t2_random, t2_label = random_word(tokens_b, tokenizer)
-        lm_label_ids = t2_label + [-1]
+        t2_masked, t2_label = mask_word(tokens_b, tokenizer)
+        lm_label_ids += (t2_label + [-1])
 
         for token in tokens_b:
             tokens.append(token)
@@ -171,7 +211,7 @@ def convert_example_to_features(example, max_seq_length, tokenizer):
     assert len(segment_ids) == max_seq_length
     assert len(lm_label_ids) == max_seq_length
 
-    if example.guid < 5:
+    if example.guid < -5:
         logger.info("*** Example ***")
         logger.info("guid: %s" % (example.guid))
         logger.info("tokens: %s" % " ".join(
@@ -193,6 +233,13 @@ def convert_example_to_features(example, max_seq_length, tokenizer):
 
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument("--dev_percent",
+                        default=-1,
+                        type=float,
+                        help="")
+    parser.add_argument("--one_sent",
+                        action='store_true',
+                        help="")
 
     ## Required parameters
     parser.add_argument("--output_dir",
@@ -301,8 +348,9 @@ def main():
     #train_examples = None
     num_train_steps = None
     if args.do_train:
-        print("Loading Train Dataset", args.train_file)
-        train_features = CHILDDataset(tokenizer).get_train_features()
+        print("Generating CHILD Dataset")
+        child_dataset = CHILDDataset(tokenizer, one_sent=args.one_sent, dev_percent=args.dev_percent)
+        train_features = child_dataset.get_train_features()
         num_train_steps = int(
             len(train_features) / args.train_batch_size / args.gradient_accumulation_steps * args.num_train_epochs)
 
@@ -349,17 +397,51 @@ def main():
                              warmup=args.warmup_proportion,
                              t_total=num_train_steps)
 
+    def validate(model, eval_dataloader):
+        model.eval()
+        eval_loss, eval_accuracy = 0, 0
+        nb_eval_steps, nb_eval_examples = 0, 0
+
+        # for batch in tqdm(eval_dataloader, desc="Evaluating"):
+        for batch in eval_dataloader:
+            batch = tuple(t.to(device) for t in batch)
+            input_ids, input_mask, segment_ids, lm_label_ids, is_next = batch
+            with torch.no_grad():
+                tmp_eval_loss = model(input_ids, segment_ids, input_mask, lm_label_ids)
+                logits = model(input_ids, segment_ids, input_mask)
+
+            logits = logits.detach().cpu().numpy()
+            lm_label_ids = lm_label_ids.to('cpu').numpy()
+            tmp_eval_accuracy = accuracy(logits, lm_label_ids)
+
+            eval_loss += tmp_eval_loss.mean().item()
+            eval_accuracy += tmp_eval_accuracy
+
+            nb_eval_examples += input_ids.size(0)
+            nb_eval_steps += 1
+
+        eval_loss = eval_loss / nb_eval_steps
+        eval_accuracy = eval_accuracy / nb_eval_examples
+        result = {'loss': eval_loss,
+                  'acc': eval_accuracy}
+
+        # logger.info("***** Eval results *****")
+        for key in sorted(result.keys()):
+            # logger.info("  %s = %s", key, str(result[key]))
+            print("  %s = %.3f" % (key, result[key]), end='')
+
+
     global_step = 0
     if args.do_train:
         logger.info("***** Running training *****")
-        logger.info("  Num examples = %d", len(train_dataset))
+        logger.info("  Num examples = %d", len(train_features))
         logger.info("  Batch size = %d", args.train_batch_size)
         logger.info("  Num steps = %d", num_train_steps)
 
         all_input_ids = torch.tensor([f.input_ids for f in train_features], dtype=torch.long)
         all_input_mask = torch.tensor([f.input_mask for f in train_features], dtype=torch.long)
         all_segment_ids = torch.tensor([f.segment_ids for f in train_features], dtype=torch.long)
-        all_lm_label_ids = torch.tensor([f.lm_label_id for f in train_features], dtype=torch.long)
+        all_lm_label_ids = torch.tensor([f.lm_label_ids for f in train_features], dtype=torch.long)
         all_is_next = torch.tensor([f.is_next for f in train_features], dtype=torch.long)
         train_dataset = TensorDataset(all_input_ids, all_input_mask, all_segment_ids, all_lm_label_ids, all_is_next)
 
@@ -372,28 +454,32 @@ def main():
         train_dataloader = DataLoader(train_dataset, sampler=train_sampler, batch_size=args.train_batch_size)
 
         if args.do_eval:
-            eval_features = CHILDDataset(tokenizer).get_dev_features()
+            eval_features = child_dataset.get_dev_features()
             all_input_ids = torch.tensor([f.input_ids for f in eval_features], dtype=torch.long)
             all_input_mask = torch.tensor([f.input_mask for f in eval_features], dtype=torch.long)
             all_segment_ids = torch.tensor([f.segment_ids for f in eval_features], dtype=torch.long)
-            all_lm_label_ids = torch.tensor([f.lm_label_id for f in eval_features], dtype=torch.long)
+            all_lm_label_ids = torch.tensor([f.lm_label_ids for f in eval_features], dtype=torch.long)
             all_is_next = torch.tensor([f.is_next for f in eval_features], dtype=torch.long)
             eval_dataset = TensorDataset(all_input_ids, all_input_mask, all_segment_ids, all_lm_label_ids, all_is_next)
 
             eval_sampler = SequentialSampler(eval_dataset)
             eval_dataloader = DataLoader(eval_dataset, sampler=eval_sampler, batch_size=args.eval_batch_size)
 
-            logger.info("Epoch 0")
-            logger.info("Evaluating on train set...")
+            # logger.info("Epoch 0. Evaluating on train set...")
+            print("Epoch 0. Train:", end='')
             validate(model, train_dataloader)
-            logger.info("Evaluating on valid set...")
+            # logger.info("Evaluating on valid set...")
+            print(" Valid:", end='')
             validate(model, eval_dataloader)
+            print()
 
-        for epoch in trange(int(args.num_train_epochs), desc="Epoch"):
+        # for epoch in trange(int(args.num_train_epochs), desc="Epoch"):
+        for epoch in range(int(args.num_train_epochs)):
             model.train()
             tr_loss = 0
             nb_tr_examples, nb_tr_steps = 0, 0
-            for step, batch in enumerate(tqdm(train_dataloader, desc="Iteration")):
+            # for step, batch in enumerate(tqdm(train_dataloader, desc="Iteration")):
+            for step, batch in enumerate(train_dataloader):
                 batch = tuple(t.to(device) for t in batch)
                 input_ids, input_mask, segment_ids, lm_label_ids, is_next = batch
                 loss = model(input_ids, segment_ids, input_mask, lm_label_ids)
@@ -409,70 +495,36 @@ def main():
                 nb_tr_examples += input_ids.size(0)
                 nb_tr_steps += 1
                 if (step + 1) % args.gradient_accumulation_steps == 0:
-                    # modify learning rate with special warm up BERT uses
-                    lr_this_step = args.learning_rate * warmup_linear(global_step/num_train_steps, args.warmup_proportion)
-                    for param_group in optimizer.param_groups:
-                        param_group['lr'] = lr_this_step
+                    if args.fp16:
+                        # modify learning rate with special warm up BERT uses
+                        # if args.fp16 is False, BertAdam is used that handles this automatically
+                        lr_this_step = args.learning_rate * warmup_linear(global_step/num_train_steps, args.warmup_proportion)
+                        for param_group in optimizer.param_groups:
+                            param_group['lr'] = lr_this_step
                     optimizer.step()
                     optimizer.zero_grad()
                     global_step += 1
 
             if args.do_eval:
-                logger.info("Epoch %d" % epoch + 1)
-                logger.info("Evaluating on train set...")
+                # logger.info("Epoch %d. Evaluating on train set..." % (epoch + 1))
+                print("Epoch %d. Train:" % (epoch + 1), end='')
                 validate(model, train_dataloader)
-                logger.info("Evaluating on valid set...")
+                # logger.info("Evaluating on valid set...")
+                print(" Valid:", end='')
                 validate(model, eval_dataloader)
+                print()
 
         # Save a trained model
-        logger.info("** ** * Saving fine - tuned model ** ** * ")
-        model_to_save = model.module if hasattr(model, 'module') else model  # Only save the model it-self
-        output_model_file = os.path.join(args.output_dir, "pytorch_model.bin")
-        if args.do_train:
-            torch.save(model_to_save.state_dict(), output_model_file)
-
-
-def validate(model, eval_dataloader):
-    model.eval()
-    eval_loss, eval_accuracy = 0, 0
-    nb_eval_steps, nb_eval_examples = 0, 0
-
-    for input_ids, input_mask, segment_ids, label_ids in tqdm(eval_dataloader, desc="Evaluating"):
-        input_ids = input_ids.to(device)
-        input_mask = input_mask.to(device)
-        segment_ids = segment_ids.to(device)
-        label_ids = label_ids.to(device)
-
-        with torch.no_grad():
-            tmp_eval_loss = model(input_ids, segment_ids, input_mask, label_ids)
-            logits = model(input_ids, segment_ids, input_mask)
-
-        logits = logits.detach().cpu().numpy()
-        label_ids = label_ids.to('cpu').numpy()
-        tmp_eval_accuracy = accuracy(logits, label_ids)
-
-        eval_loss += tmp_eval_loss.mean().item()
-        eval_accuracy += tmp_eval_accuracy
-
-        nb_eval_examples += input_ids.size(0)
-        nb_eval_steps += 1
-
-    eval_loss = eval_loss / nb_eval_steps
-    eval_accuracy = eval_accuracy / nb_eval_examples
-    loss = tr_loss/nb_tr_steps if args.do_train else None
-    result = {'eval_loss': eval_loss,
-              'eval_accuracy': eval_accuracy,
-              'global_step': global_step,
-              'loss': loss}
-
-    logger.info("***** Eval results *****")
-    for key in sorted(result.keys()):
-        logger.info("  %s = %s", key, str(result[key]))
+        # logger.info("** ** * Saving fine - tuned model ** ** * ")
+        # model_to_save = model.module if hasattr(model, 'module') else model  # Only save the model it-self
+        # output_model_file = os.path.join(args.output_dir, "pytorch_model.bin")
+        # if args.do_train:
+        #     torch.save(model_to_save.state_dict(), output_model_file)
 
 
 def accuracy(out, labels):
-    outputs = np.argmax(out, axis=1)
-    return int(np.all((outputs == labels)[labels != -1]))
+    outputs = np.argmax(out, axis=-1)
+    return np.all((outputs == labels) | (labels == -1), axis=-1).sum()
 
 
 if __name__ == "__main__":

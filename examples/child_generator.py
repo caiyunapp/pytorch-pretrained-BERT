@@ -13,7 +13,7 @@ tokenizer = BertTokenizer.from_pretrained(os.path.join(BERT_DIR, 'vocab.txt'))
 
 
 A_template = "{rel_prefix} {dt} {ent0} {rel} {dt} {ent1} {rel_suffix}"
-B_template = ["{pred_prefix} {dt} {ent} {pred}", "{pred_prefix} {pred} {dt} {ent}"]
+B_templates = ["{pred_prefix} {dt} {ent} {pred}", "{pred_prefix} {pred} {dt} {ent}"]
 
 # causal_templates = [["{A} because {B}."],# "{B} so {A}."],
 #                     ["{A} so {B}."],# "{B} because {A}."]
@@ -77,7 +77,7 @@ def make_sentences(index=-1, orig_sentence='', entities=["John", "Mary"], entity
     else:
         predicates, neg_predicates = packed_predicates, []
 
-    B_template = B_template[int(prepositive_pred)]
+    B_template = B_templates[int(prepositive_pred)]
     Bs = [B_template.format(dt=determiner, ent=mask(ent), pred=pred, pred_prefix=predicate_prefix)
           for ent, pred in zip(entities, predicates)]
     negBs = [B_template.format(dt=determiner, ent=mask(ent), pred=pred, pred_prefix=predicate_prefix)
@@ -108,10 +108,12 @@ def make_sentences(index=-1, orig_sentence='', entities=["John", "Mary"], entity
         return sentences, causal_sentences, turning_sentences
 
     sentences, causal_sentences, turning_sentences = form_all_sentences(As, negAs, Bs, negBs)
-    substituted_sentences = sentences
+    # substituted_sentences = sentences
 
     if packed_relation_substitutes is not None:
-        substituted_sentences += form_all_sentences(substituted_As, substituted_negAs, Bs, negBs)[0]
+        substituted_sentences = form_all_sentences(substituted_As, substituted_negAs, Bs, negBs)[0]
+
+    substituted_sent_groups = list(zip(sentences, substituted_sentences))
 
     if entity_substitutes is not None:
         for sub in entity_substitutes:
@@ -121,6 +123,6 @@ def make_sentences(index=-1, orig_sentence='', entities=["John", "Mary"], entity
         assert len(set(chain.from_iterable(entity_substitutes)).union(set(entities))) == 6
 
         entity_substitutes = list(itertools.product(entities[:1] + entity_substitutes[0], entities[1:] + entity_substitutes[1]))
-        substituted_sentences = [sent.replace(entities[0], sub[0]).replace(entities[1], sub[1])
-                                 for sent in substituted_sentences for sub in entity_substitutes]
-    return causal_sentences, turning_sentences, substituted_sentences
+        substituted_sent_groups = [[sent.replace(entities[0], sub[0]).replace(entities[1], sub[1]) 
+            for sent in sent_group for sub in entity_substitutes] for sent_group in substituted_sent_groups]
+    return causal_sentences, turning_sentences, substituted_sent_groups
